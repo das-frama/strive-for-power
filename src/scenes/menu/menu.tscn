@@ -1,0 +1,521 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/scenes/menu/menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/backgrounds/intro.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/opening.ogg" type="AudioStream" id=3]
+[ext_resource path="res://src/fonts/titlefont.font" type="BitmapFont" id=4]
+[ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=5]
+[ext_resource path="res://assets/ui/panels/popup.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/socials/patreonlogo.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/socials/bloggerlogo.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/socials/itchio.jpg" type="Texture" id=9]
+[ext_resource path="res://assets/ui/socials/wiki.png" type="Texture" id=10]
+[ext_resource path="res://src/scenes/menu/options.tscn" type="PackedScene" id=11]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 860, 682 )
+margin_left = 10.0
+margin_right = 10.0
+margin_top = 10.0
+margin_bottom = 10.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Axis Stretch", "Content Margin", "Margin", "Modulate" ]
+
+[node name="Menu" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Music"
+
+[node name="Title" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 220.0
+margin_top = 48.0
+margin_right = 810.0
+margin_bottom = 106.0
+rect_scale = Vector2( 1.4, 1.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Strive For Power"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+
+[node name="Social" type="PanelContainer" parent="." index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 52.0
+margin_top = 274.0
+margin_right = 197.0
+margin_bottom = 715.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 5 )
+custom_styles/panel = SubResource( 1 )
+_sections_unfolded = [ "Theme", "custom_styles" ]
+
+[node name="VBox" type="VBoxContainer" parent="Social" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 30.0
+margin_right = 112.0
+margin_bottom = 410.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 20
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Size Flags", "custom_constants" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Patreon" type="TextureButton" parent="Social/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 1
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+expand = true
+_sections_unfolded = [ "Grow Direction", "Hint", "Rect", "Textures" ]
+
+[node name="Blogger" type="TextureButton" parent="Social/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 100.0
+margin_right = 80.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 1
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Itchio" type="TextureButton" parent="Social/VBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 200.0
+margin_right = 80.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 1
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Wikia" type="TextureButton" parent="Social/VBox" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 300.0
+margin_right = 80.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 1
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="MenuPanel" type="PanelContainer" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 190.0
+margin_top = 224.0
+margin_right = 599.0
+margin_bottom = 758.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 5 )
+_sections_unfolded = [ "Margin", "Rect", "Size Flags", "Theme" ]
+
+[node name="VBoxMenu" type="VBoxContainer" parent="MenuPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 119.0
+margin_top = 24.0
+margin_right = 289.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 170, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 6
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="New Game" type="Button" parent="MenuPanel/VBoxMenu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 170.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+custom_constants/hseparation = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New Game"
+flat = false
+align = 1
+_sections_unfolded = [ "Grow Direction", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="Load" type="Button" parent="MenuPanel/VBoxMenu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 170.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load"
+flat = false
+align = 1
+
+[node name="Options" type="Button" parent="MenuPanel/VBoxMenu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 142.0
+margin_right = 170.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Options"
+flat = false
+align = 1
+
+[node name="Credits" type="Button" parent="MenuPanel/VBoxMenu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 213.0
+margin_right = 170.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Credits"
+flat = false
+align = 1
+
+[node name="Mods" type="Button" parent="MenuPanel/VBoxMenu" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 284.0
+margin_right = 170.0
+margin_bottom = 349.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Mods"
+flat = false
+align = 1
+
+[node name="Changelog" type="Button" parent="MenuPanel/VBoxMenu" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 355.0
+margin_right = 170.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 0, 65 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Changelog"
+flat = false
+align = 1
+
+[node name="Exit" type="Button" parent="MenuPanel/VBoxMenu" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 426.0
+margin_right = 170.0
+margin_bottom = 486.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 8
+theme = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+align = 1
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Options" parent="." index="5" instance=ExtResource( 11 )]
+
+visible = false
+margin_left = -585.0
+margin_top = -365.0
+margin_right = 584.0
+margin_bottom = 365.0
+
+[node name="Version" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 1048.0
+margin_right = 85.0
+margin_bottom = 1073.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "version"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="Social/VBox/Patreon" to="." method="_on_patreon_pressed"]
+
+[connection signal="pressed" from="Social/VBox/Blogger" to="." method="_on_blogger_pressed"]
+
+[connection signal="pressed" from="Social/VBox/Itchio" to="." method="_on_itchio_pressed"]
+
+[connection signal="pressed" from="Social/VBox/Wikia" to="." method="_on_wikia_pressed"]
+
+[connection signal="pressed" from="MenuPanel/VBoxMenu/Options" to="." method="_on_options_pressed"]
+
+[connection signal="pressed" from="MenuPanel/VBoxMenu/Exit" to="." method="_on_exit_pressed"]
+
+

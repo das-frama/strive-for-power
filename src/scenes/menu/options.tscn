@@ -1,0 +1,501 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=1]
+[ext_resource path="res://src/scenes/menu/options.gd" type="Script" id=2]
+
+[node name="Control" type="PanelContainer"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -444.0
+margin_top = -290.5
+margin_right = 444.0
+margin_bottom = 290.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="TabContainer" type="TabContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 878.0
+margin_bottom = 571.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+tabs_visible = true
+
+[node name="Settings" type="Tabs" parent="TabContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 56.0
+margin_right = -25.0
+margin_bottom = -25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+scrolling_enabled = true
+_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
+
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Settings" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="HBoxSettings" type="HBoxContainer" parent="TabContainer/Settings/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 818.0
+margin_bottom = 397.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 0
+
+[node name="VBoxLeft" type="VBoxContainer" parent="TabContainer/Settings/VBox/HBoxSettings" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 409.0
+margin_bottom = 220.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="Fullscreen" type="CheckBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 409.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Fullscreen Mode"
+flat = true
+clip_text = true
+align = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="UseAnimation" type="CheckBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 44.0
+margin_right = 409.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Use animation on screen change"
+flat = true
+clip_text = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="ShowSprites" type="CheckBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 88.0
+margin_right = 409.0
+margin_bottom = 132.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Show sprites in dialogues"
+flat = true
+clip_text = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SkipCombatAnimation" type="CheckBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 409.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Skip combat animation"
+flat = true
+clip_text = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="RandomPortraits" type="CheckBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 176.0
+margin_right = 409.0
+margin_bottom = 220.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Use random portraits"
+flat = true
+clip_text = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxRight" type="VBoxContainer" parent="TabContainer/Settings/VBox/HBoxSettings" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 409.0
+margin_right = 818.0
+margin_bottom = 198.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 50
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="MainFontSize" type="SpinBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 92.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+min_value = 10.0
+max_value = 24.0
+step = 1.0
+page = 0.0
+value = 10.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_icons" ]
+
+[node name="MainFontSizeLabel" type="Label" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/MainFontSize" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_top = 6.0
+margin_right = 264.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "Main Font Size"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="MusicVolume" type="HSlider" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 84.0
+margin_right = 220.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 220, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Rect", "Size Flags", "Theme" ]
+
+[node name="MusicVolumeLabel" type="Label" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/MusicVolume" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = -25.0
+margin_right = 217.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+text = "Music Volume"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SoundVolume" type="HSlider" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 166.0
+margin_right = 220.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 220, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SoundVolumeLabel" type="Label" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/SoundVolume" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -27.0
+margin_right = 215.0
+margin_bottom = -7.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+text = "Sound Volume"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Confirm" type="Button" parent="TabContainer/Settings/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 344.0
+margin_top = 401.0
+margin_right = 474.0
+margin_bottom = 451.0
+rect_min_size = Vector2( 130, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 1
+custom_constants/hseparation = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Confirm"
+flat = false
+align = 1
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="Game" type="Tabs" parent="TabContainer" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 56.0
+margin_right = -25.0
+margin_bottom = -25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 1
+scrolling_enabled = true
+
+[node name="Supporter section" type="Tabs" parent="TabContainer" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 56.0
+margin_right = -25.0
+margin_bottom = -25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 1
+scrolling_enabled = true
+
+[connection signal="toggled" from="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft/Fullscreen" to="." method="_on_fullscreen_toggled"]
+
+[connection signal="toggled" from="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft/UseAnimation" to="." method="_on_use_animation_toggled"]
+
+[connection signal="toggled" from="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft/ShowSprites" to="." method="_on_show_sprites_toggled"]
+
+[connection signal="toggled" from="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft/SkipCombatAnimation" to="." method="_on_skip_combat_animation_toggled"]
+
+[connection signal="toggled" from="TabContainer/Settings/VBox/HBoxSettings/VBoxLeft/RandomPortraits" to="." method="_on_random_portraits_toggled"]
+
+[connection signal="value_changed" from="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/MainFontSize" to="." method="_on_main_font_size_value_changed"]
+
+[connection signal="value_changed" from="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/MusicVolume" to="." method="_on_music_volume_value_changed"]
+
+[connection signal="value_changed" from="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/SoundVolume" to="." method="_on_sound_volume_value_changed"]
+
+[connection signal="pressed" from="TabContainer/Settings/VBox/Confirm" to="." method="_on_confirm_pressed"]
+
+
