@@ -4,8 +4,6 @@ extends Control
 func _ready():
 	# Set version.
 	$Version.set_text("ver. %s" % global.VERSION)
-	# Set main menu music volume.
-	global.set_music_volume(settings.get_setting("settings", "music_volume"))
 
 ## Social Section
 # Patreon

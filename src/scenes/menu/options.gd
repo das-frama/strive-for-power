@@ -2,17 +2,6 @@ extends PanelContainer
 
 onready var SettingsNode = $TabContainer/Settings/VBox/HBoxSettings
 
-# Set music volume label.
-func set_music_volume(value):
-	SettingsNode.get_node("VBoxRight/MusicVolume").set_value(value)
-	SettingsNode.get_node("VBoxRight/MusicVolume/MusicVolumeLabel").set_text("Music Volume: %s" % str(value * 100))
-	global.set_music_volume(value)
-	
-# Set sound volume label.
-func set_sound_volume(value):
-	SettingsNode.get_node("VBoxRight/SoundVolume").set_value(value)
-	SettingsNode.get_node("VBoxRight/SoundVolume/SoundVolumeLabel").set_text("Sound Volume: %s" % str(value * 100))
-
 # Initialization
 func _ready():
 	# Setting all buttons according to current state.
@@ -29,9 +18,9 @@ func _ready():
 	# Main Font Size
 	SettingsNode.get_node("VBoxRight/MainFontSize").set_value(settings.get_setting("settings", "font_size"))
 	# Music Volume
-	set_music_volume(settings.get_setting("settings", "music_volume"))
+	set_music_label(settings.get_setting("settings", "music_volume"))
 	# Sound Volume
-	set_sound_volume(settings.get_setting("settings", "sound_volume"))
+	set_sound_label(settings.get_setting("settings", "sound_volume"))
 
 ## Slots
 # Fullscreen
@@ -58,19 +47,33 @@ func _on_random_portraits_toggled(button_pressed):
 # Main Font Size
 func _on_main_font_size_value_changed(value):
 	settings.set_setting("settings", "font_size", value)
-
+	
 # Music Volume
 func _on_music_volume_value_changed(value):
 	settings.set_setting("settings", "music_volume", value)
-	set_music_volume(value)
+	settings.set_bus_volume("Music", value)
+	set_music_label(value)
 	
 # Sound Volume
 func _on_sound_volume_value_changed(value):
 	settings.set_setting("settings", "sound_volume", value)
-	set_sound_volume(value)
+	set_sound_label(value)
+	# TODO (frama): Add sfx bus.
+	# settings.set_bus_volume("SFX", value)
 	
 # Save settings to file when is confirm pressed.
 func _on_confirm_pressed():
 	settings.save_config()
 	hide()
+	
+# Set music volume label.
+func set_music_label(value):
+	SettingsNode.get_node("VBoxRight/MusicVolume").set_value(value)
+	SettingsNode.get_node("VBoxRight/MusicVolume/MusicVolumeLabel").set_text("Music Volume: %s" % str(value * 100))
+	
+# Set sound volume label.
+func set_sound_label(value):
+	SettingsNode.get_node("VBoxRight/SoundVolume").set_value(value)
+	SettingsNode.get_node("VBoxRight/SoundVolume/SoundVolumeLabel").set_text("Sound Volume: %s" % str(value * 100))
+
 

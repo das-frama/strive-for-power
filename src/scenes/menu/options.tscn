@@ -3,7 +3,7 @@
 [ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=1]
 [ext_resource path="res://src/scenes/menu/options.gd" type="Script" id=2]
 
-[node name="Control" type="PanelContainer"]
+[node name="Control" type="PanelContainer" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5

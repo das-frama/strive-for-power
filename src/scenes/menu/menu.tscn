@@ -32,7 +32,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Axis Stretch", "Content Margin", "Margin", "Modulate" ]
 
-[node name="Menu" type="Control" index="0"]
+[node name="Menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

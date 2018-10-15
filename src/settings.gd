@@ -7,6 +7,9 @@ enum {
 	LOAD_SUCCESS, 
 	LOAD_ERROR_COULDNT_OPEN
 }
+# Working range for audio bus.
+const AUDIO_DB_RANGE = Vector2(-60, 0)
+# Save path to config file.
 const SAVE_PATH = "res://config.cfg"
 
 # Config file.
@@ -62,6 +65,8 @@ func load_config():
 func setup_settings():
 	# Fullscreen check.
 	OS.set_window_fullscreen(_settings["settings"]["fullscreen"])
+	# Set music bus volume.
+	set_bus_volume("Music", _settings["settings"]["music_volume"])
 
 # Public method for getter.
 func get_setting(category, key):
@@ -70,3 +75,12 @@ func get_setting(category, key):
 # Public method for setter.
 func set_setting(category, key, val):
 	_settings[category][key] = val
+	
+# Set Music bus to proper db volume by linear interpolation.
+func set_bus_volume(bus_name, value):
+	# Linear interpolation.
+	var db = AUDIO_DB_RANGE.linear_interpolate(Vector2(0, 100), value)
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	AudioServer.set_bus_volume_db(bus_index, db.x)
+	AudioServer.set_bus_mute(bus_index, value <= 0)
+
