@@ -14,7 +14,7 @@ const SAVE_PATH = "res://config.cfg"
 
 # Config file.
 var _config_file = ConfigFile.new()
-# All the data to save is stored in a dictionary.
+# All the data to save is stored in a dictionary with default values.
 var _settings = {
 	"settings": {
 		"fullscreen": false,
@@ -22,9 +22,9 @@ var _settings = {
 		"show_sprites": false,
 		"skip_combat": false,
 		"random_portraits": false,
-		"font_size": 22.0,
+		"font_size": 20.0,
 		"music_volume": 60,
-		"sound_volume": 60
+		"sound_volume": 60,
 	}
 }
 

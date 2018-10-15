@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=2]
+[gd_resource type="Theme" load_steps=24 format=2]
 
 [ext_resource path="res://src/themes/textures/button_disabled.tres" type="StyleBox" id=1]
 [ext_resource path="res://src/themes/textures/button_hover.tres" type="StyleBox" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/ui/panels/frame_1.png" type="Texture" id=11]
 [ext_resource path="res://assets/ui/tabs/tab-bg.png" type="Texture" id=12]
 [ext_resource path="res://assets/ui/tabs/tab-fg.png" type="Texture" id=13]
-[ext_resource path="res://src/fonts/Roundo-Medium.otf" type="DynamicFontData" id=14]
+[ext_resource path="res://src/fonts/default_ui_font.tres" type="DynamicFont" id=14]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -187,17 +187,9 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="DynamicFont" id=10]
-
-size = 20
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 14 )
-_sections_unfolded = [ "Font", "Resource", "Settings" ]
-
 [resource]
 
-default_font = SubResource( 10 )
+default_font = ExtResource( 14 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.596078, 0.45098, 0.266667, 1 )
 Button/colors/font_color_hover = Color( 0.180392, 0.321569, 0.156863, 1 )
@@ -588,5 +580,5 @@ WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
-_sections_unfolded = [ "Button/styles", "CheckBox/constants", "CheckBox/icons", "CheckBox/styles", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "SpinBox/icons", "TabContainer", "TabContainer/colors", "TabContainer/styles", "Tabs", "Tabs/colors", "Tabs/styles" ]
+_sections_unfolded = [ "Button/styles", "CheckBox/constants", "CheckBox/icons", "CheckBox/styles", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "Tabs/styles" ]
 

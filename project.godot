@@ -39,3 +39,4 @@ theme/use_hidpi=true
 
 quality/intended_usage/framebuffer_allocation=0
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=true

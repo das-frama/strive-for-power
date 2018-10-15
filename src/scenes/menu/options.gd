@@ -47,6 +47,7 @@ func _on_random_portraits_toggled(button_pressed):
 # Main Font Size
 func _on_main_font_size_value_changed(value):
 	settings.set_setting("settings", "font_size", value)
+	set_font_size(value)
 	
 # Music Volume
 func _on_music_volume_value_changed(value):
@@ -76,4 +77,6 @@ func set_sound_label(value):
 	SettingsNode.get_node("VBoxRight/SoundVolume").set_value(value)
 	SettingsNode.get_node("VBoxRight/SoundVolume/SoundVolumeLabel").set_text("Sound Volume: %s" % str(value * 100))
 
-
+# Set default UI theme font size.
+func set_font_size(value):
+	get_theme().get_font("default_font", "DynamicFont").set_size(value)
