@@ -26,7 +26,8 @@ func _ready():
 	GameNode.get_node("VBoxCheck/HBoxAdult/ChildlikeCharacters").set_pressed(settings.get_setting("game", "childlike_characters"))
 	GameNode.get_node("VBoxCheck/HBoxAdult/AdultCharacters").set_pressed(settings.get_setting("game", "adult_characters"))
 	GameNode.get_node("VBoxCheck/HBoxAdult/AdultCharacters").set_visible(settings.get_setting("game", "childlike_characters"))
-	GameNode.get_node("VBoxSlider/GenderSlider").set_value(settings.get_setting("game", "gender_occurrence"))
+	set_gender_label(settings.get_setting("game", "gender_occurrence"))
+	set_futa_label(settings.get_setting("game", "futa_occurrence"))
 	GameNode.get_node("VBoxSlider/RandomFutaSlider").set_value(settings.get_setting("game", "futa_occurrence"))
 	GameNode.get_node("VBoxOption/AliseOnDay").select(settings.get_setting("game", "alise_on_day"))
 	
@@ -125,9 +126,11 @@ func _on_adult_characters_toggled(button_pressed):
 
 func _on_gender_slider_value_changed(value):
 	settings.set_setting("game", "gender_occurrence", value)
+	set_gender_label(value)
 
 func _on_random_futa_slider_value_changed(value):
 	settings.set_setting("game", "futa_occurrence", value)
+	set_futa_label(value)
 
 func _on_alise_on_day_item_selected(ID):
 	settings.set_setting("game", "alise_on_day", ID)
@@ -150,3 +153,11 @@ func set_sound_label(value):
 # Set default UI theme font size.
 func set_font_size(value):
 	get_theme().get_font("default_font", "DynamicFont").set_size(value)
+
+func set_gender_label(value):
+	GameNode.get_node("VBoxSlider/GenderSlider").set_value(value)
+	GameNode.get_node("VBoxSlider/GenderSliderLabel").set_text("Gender occurrence balance: %d%% of males" % value)
+	
+func set_futa_label(value):
+	GameNode.get_node("VBoxSlider/RandomFutaSlider").set_value(value)
+	GameNode.get_node("VBoxSlider/RandomFutaLabel").set_text("Random futa occurrence: %d%% of females" % value)
