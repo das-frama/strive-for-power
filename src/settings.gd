@@ -25,6 +25,20 @@ var _settings = {
 		"font_size": 20.0,
 		"music_volume": 60,
 		"sound_volume": 60,
+	},
+	"game": {
+		"futa": false,
+		"futa_testicles": false,
+		"furry": false,
+		"furry_nipples": false,
+		"allow_races": false,
+		"receiving_sex": false,
+		"permadeath": true,
+		"childlike_characters": false,
+		"futa_occurrence": 0.0,
+		"gender_occurrence": 0.0,
+		"alise_on_day": 0,
+		"adult_characters": false,
 	}
 }
 
@@ -74,6 +88,10 @@ func get_setting(category, key):
 
 # Public method for setter.
 func set_setting(category, key, val):
+	# Check if category exist in dictionary.
+	if !_settings.has(category):
+		_settings[category] = {}
+		
 	_settings[category][key] = val
 	
 # Set Music bus to proper db volume by linear interpolation.

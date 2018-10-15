@@ -9,10 +9,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -444.0
-margin_top = -290.5
-margin_right = 444.0
-margin_bottom = 290.5
+margin_left = -535.0
+margin_top = -375.0
+margin_right = 535.0
+margin_bottom = 373.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -31,8 +31,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 878.0
-margin_bottom = 571.0
+margin_right = 1060.0
+margin_bottom = 738.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -41,10 +41,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 tabs_visible = true
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Settings" type="Tabs" parent="TabContainer" index="0"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -85,8 +87,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 818.0
-margin_bottom = 397.0
+margin_right = 912.0
+margin_bottom = 537.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -95,7 +97,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 alignment = 0
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="VBoxLeft" type="VBoxContainer" parent="TabContainer/Settings/VBox/HBoxSettings" index="0"]
 
@@ -103,15 +105,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 401.0
-margin_bottom = 220.0
+margin_right = 448.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-custom_constants/separation = 0
+custom_constants/separation = 15
 alignment = 0
 _sections_unfolded = [ "Size Flags", "custom_constants" ]
 
@@ -121,8 +123,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 401.0
-margin_bottom = 44.0
+margin_right = 448.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -146,9 +148,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 44.0
-margin_right = 401.0
-margin_bottom = 88.0
+margin_top = 35.0
+margin_right = 448.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -172,9 +174,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 88.0
-margin_right = 401.0
-margin_bottom = 132.0
+margin_top = 70.0
+margin_right = 448.0
+margin_bottom = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -198,9 +200,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
-margin_right = 401.0
-margin_bottom = 176.0
+margin_top = 105.0
+margin_right = 448.0
+margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -224,9 +226,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 176.0
-margin_right = 401.0
-margin_bottom = 220.0
+margin_top = 140.0
+margin_right = 448.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -250,8 +252,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 416.0
-margin_right = 818.0
+margin_left = 463.0
+margin_right = 912.0
 margin_bottom = 198.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -265,6 +267,7 @@ _sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="MainFontSize" type="SpinBox" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -313,6 +316,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="MusicVolume" type="HSlider" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -365,6 +369,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="SoundVolume" type="HSlider" parent="TabContainer/Settings/VBox/HBoxSettings/VBoxRight" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -420,18 +425,18 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 344.0
-margin_top = 401.0
-margin_right = 474.0
-margin_bottom = 451.0
+margin_left = 391.0
+margin_top = 541.0
+margin_right = 521.0
+margin_bottom = 591.0
 rect_min_size = Vector2( 130, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 6
-size_flags_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
 custom_constants/hseparation = 1
 toggle_mode = false
 enabled_focus_mode = 2
@@ -444,7 +449,6 @@ _sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="Game" type="Tabs" parent="TabContainer" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -461,6 +465,551 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 1
 scrolling_enabled = true
+
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Game" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="Title" type="Label" parent="TabContainer/Game/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Random Slave Generation Settings"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VBoxCheck" type="VBoxContainer" parent="TabContainer/Game/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 60.0
+margin_right = 1000.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="HBoxFuta" type="HBoxContainer" parent="TabContainer/Game/VBox/VBoxCheck" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Futa" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxFuta" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 166.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Futa"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="FutaTesticles" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxFuta" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 170.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Futa with testicles"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HBoxFurry" type="HBoxContainer" parent="TabContainer/Game/VBox/VBoxCheck" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 1000.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Furry" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxFurry" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 166.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Furry"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="FurryNipples" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxFurry" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 170.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Additional nipples on furry characters"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="AllowRaces" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 70.0
+margin_right = 1000.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Allow all possible races in slavers guild"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="ReceivingSex" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 105.0
+margin_right = 1000.0
+margin_bottom = 125.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Enable Receiving Sex Options"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Permadeath" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 140.0
+margin_right = 1000.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Permadeath"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HBoxAdult" type="HBoxContainer" parent="TabContainer/Game/VBox/VBoxCheck" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 175.0
+margin_right = 1000.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="ChildlikeCharacters" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxAdult" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Childlike characters"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="AdultCharacters" type="CheckBox" parent="TabContainer/Game/VBox/VBoxCheck/HBoxAdult" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 253.0
+margin_right = 1000.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Disable adult characters"
+flat = true
+align = 0
+_sections_unfolded = [ "Size Flags", "Visibility" ]
+
+[node name="VBoxSlider" type="VBoxContainer" parent="TabContainer/Game/VBox" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 295.0
+margin_right = 320.0
+margin_bottom = 414.0
+rect_min_size = Vector2( 320, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_constants/separation = 5
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
+
+[node name="GenderSliderLabel" type="Label" parent="TabContainer/Game/VBox/VBoxSlider" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Gender occurrence balance: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GenderSlider" type="HSlider" parent="TabContainer/Game/VBox/VBoxSlider" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 25.0
+margin_right = 320.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 10
+ticks_on_borders = true
+focus_mode = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="RandomFutaLabel" type="Label" parent="TabContainer/Game/VBox/VBoxSlider" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 62.0
+margin_right = 320.0
+margin_bottom = 82.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Random futa occurrence: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RandomFutaSlider" type="HSlider" parent="TabContainer/Game/VBox/VBoxSlider" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 87.0
+margin_right = 320.0
+margin_bottom = 119.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 10
+ticks_on_borders = true
+focus_mode = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxOption" type="VBoxContainer" parent="TabContainer/Game/VBox" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 454.0
+margin_right = 260.0
+margin_bottom = 522.0
+rect_min_size = Vector2( 260, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="AliseOnDayLabel" type="Label" parent="TabContainer/Game/VBox/VBoxOption" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 260.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Alise on Day End"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AliseOnDay" type="OptionButton" parent="TabContainer/Game/VBox/VBoxOption" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 260.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Always"
+flat = false
+align = 0
+items = [ "Always", null, false, 1, null, "After Daily Event", null, false, 2, null, "Never", null, false, 0, null ]
+selected = 0
+
+[node name="Confirm" type="Button" parent="TabContainer/Game/VBox" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 435.0
+margin_top = 597.0
+margin_right = 565.0
+margin_bottom = 647.0
+rect_min_size = Vector2( 130, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/hseparation = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Confirm"
+flat = false
+align = 1
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="Supporter section" type="Tabs" parent="TabContainer" index="2"]
 
@@ -499,5 +1048,31 @@ scrolling_enabled = true
 [connection signal="value_changed" from="TabContainer/Settings/VBox/HBoxSettings/VBoxRight/SoundVolume" to="." method="_on_sound_volume_value_changed"]
 
 [connection signal="pressed" from="TabContainer/Settings/VBox/Confirm" to="." method="_on_confirm_pressed"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxFuta/Futa" to="." method="_on_futa_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxFuta/FutaTesticles" to="." method="_on_futa_testicles_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxFurry/Furry" to="." method="_on_furry_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxFurry/FurryNipples" to="." method="_on_furry_nipples_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/AllowRaces" to="." method="_on_allow_races_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/ReceivingSex" to="." method="_on_receiving_sex_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/Permadeath" to="." method="_on_permadeath_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxAdult/ChildlikeCharacters" to="." method="_on_childlike_characters_toggled"]
+
+[connection signal="toggled" from="TabContainer/Game/VBox/VBoxCheck/HBoxAdult/AdultCharacters" to="." method="_on_adult_characters_toggled"]
+
+[connection signal="value_changed" from="TabContainer/Game/VBox/VBoxSlider/GenderSlider" to="." method="_on_gender_slider_value_changed"]
+
+[connection signal="value_changed" from="TabContainer/Game/VBox/VBoxSlider/RandomFutaSlider" to="." method="_on_random_futa_slider_value_changed"]
+
+[connection signal="item_selected" from="TabContainer/Game/VBox/VBoxOption/AliseOnDay" to="." method="_on_alise_on_day_item_selected"]
+
+[connection signal="pressed" from="TabContainer/Game/VBox/Confirm" to="." method="_on_confirm_pressed"]
 
 

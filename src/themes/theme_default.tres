@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=2]
+[gd_resource type="Theme" load_steps=29 format=2]
 
 [ext_resource path="res://src/themes/textures/button_disabled.tres" type="StyleBox" id=1]
 [ext_resource path="res://src/themes/textures/button_hover.tres" type="StyleBox" id=2]
@@ -31,6 +31,41 @@ expand_margin_top = 0.0
 expand_margin_bottom = 0.0
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxTexture" id=2]
 
@@ -213,11 +248,11 @@ CheckBox/icons/checked = ExtResource( 5 )
 CheckBox/icons/radio_checked = ExtResource( 5 )
 CheckBox/icons/radio_unchecked = ExtResource( 6 )
 CheckBox/icons/unchecked = ExtResource( 6 )
-CheckBox/styles/disabled = null
-CheckBox/styles/focus = null
-CheckBox/styles/hover = null
-CheckBox/styles/normal = null
-CheckBox/styles/pressed = null
+CheckBox/styles/disabled = SubResource( 10 )
+CheckBox/styles/focus = SubResource( 11 )
+CheckBox/styles/hover = SubResource( 12 )
+CheckBox/styles/normal = SubResource( 13 )
+CheckBox/styles/pressed = SubResource( 14 )
 CheckButton/colors/font_color = Color( 0, 0, 0, 1 )
 CheckButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 CheckButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -580,5 +615,5 @@ WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
-_sections_unfolded = [ "Button/styles", "CheckBox/constants", "CheckBox/icons", "CheckBox/styles", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "Tabs/styles" ]
+_sections_unfolded = [ "Button/styles", "CheckBox", "CheckBox/constants", "CheckBox/fonts", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "Tabs/styles" ]
 

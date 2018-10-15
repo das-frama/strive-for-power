@@ -1,26 +1,35 @@
 extends PanelContainer
 
 onready var SettingsNode = $TabContainer/Settings/VBox/HBoxSettings
+onready var GameNode = $TabContainer/Game/VBox
 
 # Initialization
 func _ready():
 	# Setting all buttons according to current state.
-	# Fullscreen
 	SettingsNode.get_node("VBoxLeft/Fullscreen").set_pressed(settings.get_setting("settings", "fullscreen"))
-	# Use Animation
 	SettingsNode.get_node("VBoxLeft/UseAnimation").set_pressed(settings.get_setting("settings", "use_animation"))
-	# Show Sprites
 	SettingsNode.get_node("VBoxLeft/ShowSprites").set_pressed(settings.get_setting("settings", "show_sprites"))
-	# Skip Combat Animation
 	SettingsNode.get_node("VBoxLeft/SkipCombatAnimation").set_pressed(settings.get_setting("settings", "skip_combat"))
-	# Random Portraits
 	SettingsNode.get_node("VBoxLeft/RandomPortraits").set_pressed(settings.get_setting("settings", "random_portraits"))
-	# Main Font Size
 	SettingsNode.get_node("VBoxRight/MainFontSize").set_value(settings.get_setting("settings", "font_size"))
-	# Music Volume
 	set_music_label(settings.get_setting("settings", "music_volume"))
-	# Sound Volume
 	set_sound_label(settings.get_setting("settings", "sound_volume"))
+	GameNode.get_node("VBoxCheck/HBoxFuta/Futa").set_pressed(settings.get_setting("game", "futa"))
+	GameNode.get_node("VBoxCheck/HBoxFuta/FutaTesticles").set_pressed(settings.get_setting("game", "futa_testicles"))
+	GameNode.get_node("VBoxCheck/HBoxFuta/FutaTesticles").set_disabled(!settings.get_setting("game", "futa"))
+	GameNode.get_node("VBoxCheck/HBoxFurry/Furry").set_pressed(settings.get_setting("game", "furry"))
+	GameNode.get_node("VBoxCheck/HBoxFurry/FurryNipples").set_pressed(settings.get_setting("game", "furry_nipples"))
+	GameNode.get_node("VBoxCheck/HBoxFurry/FurryNipples").set_disabled(!settings.get_setting("game", "furry"))
+	GameNode.get_node("VBoxCheck/AllowRaces").set_pressed(settings.get_setting("game", "allow_races"))
+	GameNode.get_node("VBoxCheck/ReceivingSex").set_pressed(settings.get_setting("game", "receiving_sex"))
+	GameNode.get_node("VBoxCheck/Permadeath").set_pressed(settings.get_setting("game", "permadeath"))
+	GameNode.get_node("VBoxCheck/HBoxAdult/ChildlikeCharacters").set_pressed(settings.get_setting("game", "childlike_characters"))
+	GameNode.get_node("VBoxCheck/HBoxAdult/AdultCharacters").set_pressed(settings.get_setting("game", "adult_characters"))
+	GameNode.get_node("VBoxCheck/HBoxAdult/AdultCharacters").set_visible(settings.get_setting("game", "childlike_characters"))
+	GameNode.get_node("VBoxSlider/GenderSlider").set_value(settings.get_setting("game", "gender_occurrence"))
+	GameNode.get_node("VBoxSlider/RandomFutaSlider").set_value(settings.get_setting("game", "futa_occurrence"))
+	GameNode.get_node("VBoxOption/AliseOnDay").select(settings.get_setting("game", "alise_on_day"))
+	
 
 ## Slots
 # Fullscreen
@@ -62,6 +71,67 @@ func _on_sound_volume_value_changed(value):
 	# TODO (frama): Add sfx bus.
 	# settings.set_bus_volume("SFX", value)
 	
+# Futa
+func _on_futa_toggled(button_pressed):
+	settings.set_setting("game", "futa", button_pressed)
+	var FutaTesticles = GameNode.get_node("VBoxCheck/HBoxFuta/FutaTesticles")
+	if button_pressed:
+		FutaTesticles.set_disabled(false)
+	else:
+		settings.set_setting("game", "futa_testicles", false)
+		FutaTesticles.set_pressed(false)
+		FutaTesticles.set_disabled(true)
+
+# Futa with testicles
+func _on_futa_testicles_toggled(button_pressed):
+	settings.set_setting("game", "futa_testicles", button_pressed)
+
+# Furry
+func _on_furry_toggled(button_pressed):
+	settings.set_setting("game", "furry", button_pressed)
+	var FurryNipples = GameNode.get_node("VBoxCheck/HBoxFurry/FurryNipples")
+	if button_pressed:
+		FurryNipples.set_disabled(false)
+	else:
+		settings.set_setting("game", "furry_nipples", false)
+		FurryNipples.set_pressed(false)
+		FurryNipples.set_disabled(true)
+
+# Additional nipples on furry characters
+func _on_furry_nipples_toggled(button_pressed):
+	settings.set_setting("game", "furry_nipples", button_pressed)
+
+func _on_allow_races_toggled(button_pressed):
+	settings.set_setting("game", "allow_races", button_pressed)
+
+func _on_receiving_sex_toggled(button_pressed):
+	settings.set_setting("game", "receiving_sex", button_pressed)
+
+func _on_permadeath_toggled(button_pressed):
+	settings.set_setting("game", "permadeath", button_pressed)
+
+func _on_childlike_characters_toggled(button_pressed):
+	settings.set_setting("game", "childlike_characters", button_pressed)
+	var AdultCharacters = GameNode.get_node("VBoxCheck/HBoxAdult/AdultCharacters")
+	if button_pressed:
+		AdultCharacters.show()
+	else:
+		settings.set_setting("game", "adult_characters", false)
+		AdultCharacters.set_pressed(false)
+		AdultCharacters.hide()
+
+func _on_adult_characters_toggled(button_pressed):
+	settings.set_setting("game", "adult_characters", button_pressed)
+
+func _on_gender_slider_value_changed(value):
+	settings.set_setting("game", "gender_occurrence", value)
+
+func _on_random_futa_slider_value_changed(value):
+	settings.set_setting("game", "futa_occurrence", value)
+
+func _on_alise_on_day_item_selected(ID):
+	settings.set_setting("game", "alise_on_day", ID)
+
 # Save settings to file when is confirm pressed.
 func _on_confirm_pressed():
 	settings.save_config()
