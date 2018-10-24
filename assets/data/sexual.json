@@ -1,0 +1,74 @@
+{
+    "butt_size": {
+        "male": {
+            "child": ["flat"],
+            "*": ["flat", "masculine"]
+        },
+        "*": {
+            "child": ["flat", "small", "average"],
+            "teen": ["flat", "small", "average", "big"],
+            "*": ["flat", "small", "average", "big", "huge"]
+        }
+    },
+    "breast_size": {
+        "male": {
+            "child": ["flat"],
+            "*": ["flat", "masculine"]
+        },
+        "*": {
+            "child": ["flat", "small", "average"],
+            "teen": ["flat", "small", "average", "big"],
+            "*": ["flat", "small", "average", "big", "huge"]
+        }
+    },
+    "penis_size": {
+        "male": {
+            "child": ["small", "average"],
+            "teen": ["small", "average"],
+            "*": ["small", "average", "big"]
+        },
+        "futanari": {
+            "child": ["small", "average"],
+            "teen": ["small", "average"],
+            "*": ["small", "average", "big"]
+        }
+    },
+    "testicle_size": {
+        "male": {
+            "child": ["small", "average"],
+            "teen": ["small", "average"],
+            "*": ["small", "average", "big"]
+        },
+        "futanari": {
+            "child": ["small", "average"],
+            "teen": ["small", "average"],
+            "*": ["small", "average", "big"]
+        }
+    },
+    "height": {
+        "*": {
+            "child": ["petite", "short"],
+            "teen": ["petite", "short", "average", "tall"],
+            "*": ["short", "average", "tall", "towering"]
+        }  
+    },
+    "hair_length": {
+        "male": {
+            "*": ["ear", "neck", "shoulder"]
+        },
+        "*": {
+            "child": ["ear", "neck", "shoulder"],
+            "teen": ["ear", "neck", "shoulder", "waist"],
+            "*": ["ear", "neck", "shoulder", "waist", "hips"]
+        }
+    },
+    "hair_style": {
+        "male": {
+            "*": ["straight", "ponytail"]
+        },
+        "*": {
+            "*": ["ponytail", "twintails", "braid", "two braids", "bun"]
+        }
+    }
+}
+  

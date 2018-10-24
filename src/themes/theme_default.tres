@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=29 format=2]
+[gd_resource type="Theme" load_steps=37 format=2]
 
 [ext_resource path="res://src/themes/textures/button_disabled.tres" type="StyleBox" id=1]
 [ext_resource path="res://src/themes/textures/button_hover.tres" type="StyleBox" id=2]
@@ -10,10 +10,14 @@
 [ext_resource path="res://assets/ui/lineedit/textfield_normal.png" type="Texture" id=8]
 [ext_resource path="res://assets/ui/buttons/arrows.png" type="Texture" id=9]
 [ext_resource path="res://assets/ui/panels/panel_1.png" type="Texture" id=10]
-[ext_resource path="res://assets/ui/panels/frame_1.png" type="Texture" id=11]
-[ext_resource path="res://assets/ui/tabs/tab-bg.png" type="Texture" id=12]
-[ext_resource path="res://assets/ui/tabs/tab-fg.png" type="Texture" id=13]
-[ext_resource path="res://src/fonts/default_ui_font.tres" type="DynamicFont" id=14]
+[ext_resource path="res://assets/ui/panels/panel_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/panels/frame_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/tabs/tab-bg.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/tabs/tab-fg.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/vscroll/vscroll_grabber.png" type="Texture" id=15]
+[ext_resource path="res://assets/ui/vscroll/vscroll_grabber_highlight.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/vscroll/vscroll.png" type="Texture" id=17]
+[ext_resource path="res://src/fonts/default_ui_font.tres" type="DynamicFont" id=18]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -151,10 +155,30 @@ content_margin_top = -1.0
 content_margin_bottom = -1.0
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 500, 500 )
-margin_left = 10.0
-margin_right = 10.0
-margin_top = 10.0
-margin_bottom = 10.0
+margin_left = 17.0
+margin_right = 17.0
+margin_top = 17.0
+margin_bottom = 17.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Margin" ]
+
+[sub_resource type="StyleBoxTexture" id=18]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 860, 682 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
 expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
@@ -169,7 +193,7 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 1317, 70 )
 margin_left = 25.0
 margin_right = 25.0
@@ -188,7 +212,7 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 156, 41 )
 margin_left = 9.0
 margin_right = 9.0
@@ -208,7 +232,7 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 154, 44 )
 margin_left = 9.0
 margin_right = 9.0
@@ -222,9 +246,69 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
+[sub_resource type="StyleBoxTexture" id=15]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 34, 26 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Margin" ]
+
+[sub_resource type="StyleBoxTexture" id=16]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 34, 26 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Margin" ]
+
+[sub_resource type="StyleBoxTexture" id=17]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 34, 58 )
+margin_left = 17.0
+margin_right = 17.0
+margin_top = 22.0
+margin_bottom = 22.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Margin" ]
+
 [resource]
 
-default_font = ExtResource( 14 )
+default_font = ExtResource( 18 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.596078, 0.45098, 0.266667, 1 )
 Button/colors/font_color_hover = Color( 0.180392, 0.321569, 0.156863, 1 )
@@ -405,10 +489,10 @@ MenuButton/styles/hover = null
 MenuButton/styles/normal = null
 MenuButton/styles/pressed = null
 OptionButton/colors/font_color = Color( 0, 0, 0, 1 )
-OptionButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-OptionButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.596078, 0.45098, 0.266667, 1 )
+OptionButton/colors/font_color_hover = Color( 0.180392, 0.321569, 0.156863, 1 )
 OptionButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
-OptionButton/constants/arrow_margin = 2
+OptionButton/constants/arrow_margin = 3
 OptionButton/constants/hseparation = 2
 OptionButton/fonts/font = null
 OptionButton/icons/arrow = ExtResource( 9 )
@@ -421,20 +505,20 @@ Panel/styles/panel = SubResource( 10 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
 PanelContainer/styles/panel = SubResource( 11 )
-PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_hover = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.698039, 0.698039, 0.698039, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.87451, 0.87451, 0.87451, 1 )
+PopupMenu/colors/font_color_hover = Color( 0.87451, 0.87451, 0.87451, 1 )
 PopupMenu/constants/hseparation = 4
 PopupMenu/constants/vseparation = 4
 PopupMenu/fonts/font = null
-PopupMenu/icons/checked = null
-PopupMenu/icons/radio_checked = null
-PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/checked = ExtResource( 5 )
+PopupMenu/icons/radio_checked = ExtResource( 5 )
+PopupMenu/icons/radio_unchecked = ExtResource( 6 )
 PopupMenu/icons/submenu = null
-PopupMenu/icons/unchecked = null
+PopupMenu/icons/unchecked = ExtResource( 6 )
 PopupMenu/styles/hover = null
-PopupMenu/styles/panel = null
+PopupMenu/styles/panel = SubResource( 18 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 PopupPanel/styles/panel = null
@@ -444,7 +528,7 @@ ProgressBar/fonts/font = null
 ProgressBar/styles/bg = null
 ProgressBar/styles/fg = null
 ReferenceRect/styles/border = null
-RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/default_color = Color( 0.937255, 0.937255, 0.937255, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/selection_color = Color( 0, 0, 0, 1 )
 RichTextLabel/constants/line_separation = 1
@@ -586,10 +670,10 @@ VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
 VScrollBar/icons/increment_highlight = null
-VScrollBar/styles/grabber = null
-VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber = SubResource( 15 )
+VScrollBar/styles/grabber_highlight = SubResource( 16 )
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll = SubResource( 17 )
 VScrollBar/styles/scroll_focus = null
 VSeparator/constants/separation = 4
 VSeparator/styles/separator = null
@@ -615,5 +699,5 @@ WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
-_sections_unfolded = [ "Button/styles", "CheckBox/constants", "CheckBox/fonts", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "SpinBox/icons", "TabContainer", "TabContainer/colors", "TabContainer/styles", "Tabs", "Tabs/colors" ]
+_sections_unfolded = [ "Button/styles", "CheckBox/constants", "CheckBox/fonts", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "PopupMenu", "PopupMenu/constants", "PopupMenu/styles", "RichTextLabel/colors", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "VScrollBar/styles" ]
 

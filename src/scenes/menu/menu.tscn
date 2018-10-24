@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/intro.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/ui/socials/itchio.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/ui/socials/wiki.png" type="Texture" id=10]
 [ext_resource path="res://src/scenes/menu/options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scenes/menu/new_game.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -292,7 +293,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="New Game" type="Button" parent="MenuPanel/VBoxMenu" index="0"]
+[node name="NewGame" type="Button" parent="MenuPanel/VBoxMenu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -484,7 +485,14 @@ margin_top = -365.0
 margin_right = 584.0
 margin_bottom = 365.0
 
-[node name="Version" type="Label" parent="." index="6"]
+[node name="NewGame" parent="." index="6" instance=ExtResource( 12 )]
+
+margin_left = -704.0
+margin_top = -351.0
+margin_right = 703.0
+margin_bottom = 351.0
+
+[node name="Version" type="Label" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -514,6 +522,8 @@ max_lines_visible = -1
 [connection signal="pressed" from="Social/VBox/Itchio" to="." method="_on_itchio_pressed"]
 
 [connection signal="pressed" from="Social/VBox/Wikia" to="." method="_on_wikia_pressed"]
+
+[connection signal="pressed" from="MenuPanel/VBoxMenu/NewGame" to="." method="_on_new_game_pressed"]
 
 [connection signal="pressed" from="MenuPanel/VBoxMenu/Options" to="." method="_on_options_pressed"]
 

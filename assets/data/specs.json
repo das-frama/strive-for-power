@@ -1,0 +1,82 @@
+{
+    "geisha": {
+        "name": "Geisha",
+        "code": "geisha",
+        "descript": "A Geisha is an adept of love. They are trained to please both men and women, not only with sex but also in companionship. They are genuinely pleasant to have around as they try their best to feel what a potential partner might want. ",
+        "descriptbonus": "+25% to escort and prostitution, no penalties for same-sex, opposite dominance or perverted actions",
+        "descriptreqs": "Charm 75+, Beauty 60+, grade Commoner or above, unlocked sex.",
+        "reqs": "person.charm >= 75 && person.beautybase >= 60 && !person.origins in ['slave','poor'] && person.consent == true"
+    },
+    "ranger": {
+        "name": "Ranger",
+        "code": "ranger",
+        "descript": "Rangers are quick and resourceful individuals who are at home in any natural environment.. Not only do they have an eye for better opportunities, but also can spot richer preys. ",
+        "descriptbonus": "+40% drop rate from combat encounters, forage and hunt efficiency + 25%, scouting bonus",
+        "descriptreqs": "Wit 75+, Endurance 3+.",
+        "reqs": "person.wit >= 75 && person.send >= 3"
+    },
+    "executor": {
+        "name": "Executor",
+        "code": "executor",
+        "descript": "Executors are trained to work with people in a most efficient way. Their commands are always straight and on-point and their attitude is met with respect. ",
+        "descriptbonus": "Management-related tasks ignore confidence (will always count as 100). Obedience can't drop below 50.",
+        "descriptreqs": "Conf 75+, Wit 50+, grade Rich or above",
+        "reqs": "person.conf >= 75 && person.wit >= 50 && person.origins in ['rich', 'noble']"
+    },
+    "bodyguard": {
+        "name": "Bodyguard",
+        "code": "bodyguard",
+        "descript": "A Bodyguard is trained to put their Master’s life before their own. Not only are they capable of taking down threats on their own, but are also substantially more effective at protecting others. ",
+        "descriptbonus": "+ 4 Armor, +40 Maximum Health, \"Protect\" action doubles the amount of reduced damage.",
+        "descriptreqs": "Courage 60+, agility 3+, strength 4+, loyalty 50+",
+        "reqs": "person.cour >= 60 && person.sagi >= 3 && person.sstr >= 4 && person.loyal >= 50"
+    },
+    "assassin": {
+        "name": "Assassin",
+        "code": "assassin",
+        "descript": "Assassins are trained to act swiftly and decisively, when required. They prefer efficiency over show and offence to defence.  ",
+        "descriptbonus": "Speed +5, Damage +5",
+        "descriptreqs": "Agility 5+, Wit 65+",
+        "reqs": "person.wit >= 65 && person.sagi >= 5"
+    },
+    "housekeeper": {
+        "name": "Housekeeper",
+        "code": "housekeeper",
+        "descript": "Housekeepers are experts at supplying and taking care of the living quarters. ",
+        "descriptbonus": "Will clean the house on stationary jobs (half effect of normal cleaning). Personal daily expenses are cut in half.",
+        "descriptreqs": "None",
+        "reqs": "true"
+    },
+    "trapper": {
+        "name": "Trapper",
+        "code": "trapper",
+        "descript": "Trappers are generally common professionals you can find in any slavers party. They are also reasonably well trained in hunting. ",
+        "descriptbonus": "Bonus hunting +20%, 50% chance to automatically capture escaping person, bonus capture rate. ",
+        "descriptreqs": "Wit 50+, Grade: Commoner and above ",
+        "reqs": "person.wit >= 50 && !person.origins in ['slave','poor']"
+    },
+    "nympho": {
+        "name": "Nympho",
+        "code": "nympho",
+        "descript": "Nymphos devote their life entirely to the lewdness. They are ready for anything and everything and want more. It's common practice to make such slaves into tools and toys for their owners. ",
+        "descriptbonus": "Sex actions take only half energy, + 2 mana from sex actions, + 25% to fucktoy, no penalties from any sex activities. ",
+        "descriptreqs": "Grade: Commoner and below, Unlocked sex, Charm and Courage 50+ ",
+        "reqs": "person.origins in ['slave','poor','commoner'] && person.consent == true && person.cour >= 50 && person.charm >= 50"
+    },
+    "merchant": {
+        "name": "Merchant",
+        "code": "merchant",
+        "descript": "People with a talent for bargains, not only profitable to keep around, but also good at connecting with others. ",
+        "descriptbonus": "Bonus shopping activities, bonus item selling while in party 25% (does not stack). ",
+        "descriptreqs": "Wit and Charm 50+ ",
+        "reqs": "person.wit >= 50 && person.charm >= 50"
+    },
+    "tamer": {
+        "name": "Tamer",
+        "code": "tamer",
+        "descript": "Tamers are trained to work with wild animals and savagely behaving individuals. By utilizing many simple lessons they will eventually bring their true potential out of those. ",
+        "descriptbonus": "Uncivilized races more obedient and can lose that trait while a Tamer is resting, managing or working on the same occupation. ",
+        "descriptreqs": "Confidence and charm 50+, Grade: Commoner and above",
+        "reqs": "person.conf >= 50 && person.charm >= 50 && person.origins in ['commoner','rich','noble']"
+    }
+}

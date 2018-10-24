@@ -23,9 +23,13 @@ func _on_wikia_pressed():
 	OS.shell_open('http://strive4power.wikia.com/wiki/Strive4power_Wiki')
 	
 ## Menu Section
+# New Game
+func _on_new_game_pressed():
+	$NewGame.show()
+
 # Options
 func _on_options_pressed():
-	$Options.visible = true
+	$Options.show()
 	
 # Exit
 func _on_exit_pressed():
