@@ -10,10 +10,10 @@ var player
 # Cached json dicts.
 var _json = {}
 
+# Initialization.
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	# Seed the random.
+	randomize()
 
 # Helper function for read json into dictionary.
 func read_json(path):

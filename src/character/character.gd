@@ -85,14 +85,12 @@ func gender_set(new_gender):
 			
 # Generate random name by race and gender.
 func random_name():
-	randomize()
 	first_name = _get_random_name(race, gender)
 	last_name = _get_random_name(race, "surname") # TODO (frama): may be we should find a better way to fetch surnames.
 	
 # Generate random apperance by race.
 # see assets/data/race.json
 func random_appearance():
-	randomize()
 	var races = global.read_json("res://assets/data/races.json")
 	if not races.has(race):
 		return
@@ -115,7 +113,6 @@ func random_appearance():
 # Generate random sexual features by gender.
 # see assets/data/sexual.json
 func random_sexuals():
-	randomize()
 	var sexuals = global.read_json("res://assets/data/sexual.json")
 	for key in sexuals:
 		if not key in self:

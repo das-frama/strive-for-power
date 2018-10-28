@@ -15,6 +15,8 @@ enum {
 	STAGE_FINAL,
 }
 var _current_stage = STAGE_RACE
+
+# UI Elements.
 onready var StageButtons = $StageButtons/VBox
 onready var StagePanels = $StagePanels/Margin
 
