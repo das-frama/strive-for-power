@@ -44,10 +44,6 @@ func _process(delta):
 		if AudioServer.get_bus_volume_db(1) >= globals.globalsettings.musicvol:
 			AudioServer.set_bus_volume_db(1, globals.globalsettings.musicvol)
 			musicraising = false
-	
-
-
-
 
 func CloseTopWindow():
 	var node = CloseableWindowsArray.back()
@@ -99,20 +95,20 @@ func GetMusicNode():
 
 #Item shading function
 
-func itemshadeimage(node, item):
-	var shader = load("res://files/ItemShader.tres").duplicate()
-	if node.get_class() == "TextureButton":
-		node.texture_normal = load(item.icon)
-	else:
-		node.texture = load(item.icon)
-	if node.material != shader:
-		node.material = shader
-	else:
-		shader = node.material
-	for i in item.parts:
-		var part = 'part' +  str(item.partcolororder[i]) + 'color'
-		var color = globals.items.Materials[item.parts[i]].color
-		node.material.set_shader_param(part, color)
+#func itemshadeimage(node, item):
+#	var shader = load("res://files/ItemShader.tres").duplicate()
+#	if node.get_class() == "TextureButton":
+#		node.texture_normal = load(item.icon)
+#	else:
+#		node.texture = load(item.icon)
+#	if node.material != shader:
+#		node.material = shader
+#	else:
+#		shader = node.material
+#	for i in item.parts:
+#		var part = 'part' +  str(item.partcolororder[i]) + 'color'
+#		var color = globals.items.Materials[item.parts[i]].color
+#		node.material.set_shader_param(part, color)
 	
 
 #Enlarge/fade out animation

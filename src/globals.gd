@@ -158,98 +158,9 @@ func _newready():
 	TownData = load('res://files/TownData.gd').new()
 	enemydata = load("res://assets/data/enemydata.gd").new()
 	skills = load("res://assets/data/Skills.gd").new()
-	workersdict = TownData.workersdict
-	
-	state = gamestate.new()
-	for i in items.Materials:
-		state.materials[i] = 0
-	state.materials.wood = 5
-	state.materials.stone = 5
-	state.money = 200
-	
-
-func logupdate(text):
-	state.logupdate(text)
-
-class gamestate:
-	
-	
-	var date = 1
-	var daytime = 0
-	
-	#resources
-	var itemidcounter = 0
-	var heroidcounter = 0
-	var workeridcounter = 0
-	var money = 0
-	var townupgrades = {workerlimit = 5}
-	var workers = {}
-	var heroes = {}
-	var items = {}
-	var materials = {} setget materials_set
-	var lognode 
-	var oldmaterials = {}
-	var unlocks = []
-	
-	var heroguild = []
-	
-	func _init():
-		oldmaterials = materials.duplicate()
-	
-	func materials_set(value):
-		var text = ''
-		for i in value:
-			if oldmaterials.has(i) == false || oldmaterials[i] != value[i]:
-				if oldmaterials.has(i) == false:
-					oldmaterials[i] = 0
-				else:
-					if oldmaterials[i] - value[i] < 0:
-						text += 'Gained '
-					else:
-						text += "Lost "
-					text += str(value[i] - oldmaterials[i]) + ' {color=yellow|' + globals.items.Materials[i].name + '}'
-					logupdate(text)
-		materials = value
-		oldmaterials = materials.duplicate()
-	
-	func logupdate(text):
-		if globals.get_tree().get_root().has_node("LogPanel/RichTextLabel") == false:
-			return
-		lognode = globals.get_tree().get_root().get_node("LogPanel/RichTextLabel")
-		text = lognode.bbcode_text + '\n' + text
-		
-		#lognode.bbcode_text += '\n' + 
-		lognode.bbcode_text = globals.TextEncoder(text)
-
-
-
-
-
-class worker:
-	var name
-	var type
-	var id
-	var task
-	var energy
-	var maxenergy
-	var currenttask
-	var icon
-	var model
-	
-	func create(data):
-		name = data.name
-		type = data.type
-		id = globals.state.workeridcounter
-		globals.state.workeridcounter += 1
-		maxenergy = data.maxenergy
-		energy = data.maxenergy
-		icon = data.icon
-		globals.state.workers[id] = self
 
 var scenedict = {
-	menu = "res://files/Menu.tscn",
-	town = "res://files/MainScreen.tscn"
-	
+	town = load(''),
 }
 
 func ChangeScene(name):
@@ -291,8 +202,6 @@ func evaluate(input): #used to read strings as conditions when needed
 	var obj = Reference.new()
 	obj.set_script(script)
 	return obj.eval()
-
-
 
 func ClearContainer(container):
 	for i in container.get_children():
@@ -452,71 +361,6 @@ func TextEncoder(text, node = null):
 func BBCodeTooltip(meta, node):
 	var text = node.get_meta('tooltips')[int(meta)]
 	showtooltip(text, node)
-
-func CharacterSelect(targetscript, type, function, requirements):
-	var node 
-	if get_tree().get_root().has_node("CharacterSelect"):
-		node = get_tree().get_root().get_node("CharacterSelect")
-	else:
-		node = load("res://CharacterSelect.tscn").instance()
-		get_tree().get_root().add_child(node)
-		node.name = 'CharacterSelect'
-		AddPanelOpenCloseAnimation(node)
-	
-	node.show()
-	node.set_as_toplevel(true)
-	ClearContainer(node.get_node("ScrollContainer/VBoxContainer"))
-	
-	var array = []
-	if type == 'workers':
-		array = state.workers.values()
-	
-	for i in array:
-		if requirements == 'notask' && i.task != null:
-			continue
-		var newnode = globals.DuplicateContainerTemplate(node.get_node("ScrollContainer/VBoxContainer"))
-		newnode.text = i.name
-		newnode.connect('pressed', targetscript, function, [i])
-		newnode.connect('pressed',self,'CloseSelection', [node])
-
-func ItemSelect(targetscript, type, function, requirements = true):
-	var node 
-	if get_tree().get_root().has_node("ItemSelect"):
-		node = get_tree().get_root().get_node("ItemSelect")
-	else:
-		node = load("res://ItemSelect.tscn").instance()
-		get_tree().get_root().add_child(node)
-		AddPanelOpenCloseAnimation(node)
-		node.name = 'ItemSelect'
-	node.show()
-	node.set_as_toplevel(true)
-	
-	ClearContainer(node.get_node("ScrollContainer/GridContainer"))
-	
-	var array = []
-	if type == 'gear':
-		for i in state.items.values():
-			if i.subtype == requirements && i.task == null && i.owner == null:
-				array.append(i)
-	elif type == 'repairable':
-		for i in state.items:
-			if i.durability < i.maxdurability:
-				array.append(i)
-	
-	for i in array:
-		var newnode = globals.DuplicateContainerTemplate(node.get_node("ScrollContainer/GridContainer"))
-		if type == 'gear':
-			input_handler.itemshadeimage(newnode, i)
-			newnode.get_node("Percent").show()
-			newnode.get_node("Percent").text = str(calculatepercent(i.durability, i.maxdurability)) + '%'
-			connecttooltip(newnode, i.tooltip())
-		newnode.connect('pressed', targetscript, function, [i])
-		newnode.connect('pressed',self,'CloseSelection', [node])
-
-func CloseSelection(panel):
-	panel.hide()
-
-
 
 func calculatepercent(value1, value2):
 	return value1*100/max(value2,1)
