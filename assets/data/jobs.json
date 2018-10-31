@@ -1,10 +1,9 @@
 {
     "rest": {
-        "code": "rest",
         "name": "Rest",
         "type": "basic",
-        "description": "$name will rest for today",
-        "workline": "$name will be taking a rest for today.",
+        "description": "{fullname} will rest for today",
+        "workline": "{fullname} will be taking a rest for today.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -15,11 +14,10 @@
         ]
     },
     "forage": {
-        "code": "forage",
         "name": "Forage",
         "type": "basic",
-        "description": "$name will be looking around for edible berries and fungi.\n\n[color=yellow]Efficiency grows with Wit. Penalty affected by Courage. Strength and Endurance affect carrying weight. [/color]",
-        "workline": "$name will be foraging in the nearby woods.",
+        "description": "{fullname} will be looking around for edible berries and fungi.\n\n[color=yellow]Efficiency grows with Wit. Penalty affected by Courage. Strength and Endurance affect carrying weight. [/color]",
+        "workline": "{fullname} will be foraging in the nearby woods.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -31,11 +29,10 @@
         ]
     },
     "hunt": {
-        "code": "hunt",
         "name": "Hunt",
         "type": "basic",
-        "description": "$name will try hunting wild animals.\n\n[color=yellow]Efficiency grows Agility and Endurance. Penalty affected by Courage. Strength and Endurance affect carrying weight. [/color]",
-        "workline": "$name will be hunting in the nearby woods.",
+        "description": "{fullname} will try hunting wild animals.\n\n[color=yellow]Efficiency grows Agility and Endurance. Penalty affected by Courage. Strength and Endurance affect carrying weight. [/color]",
+        "workline": "{fullname} will be hunting in the nearby woods.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -47,11 +44,10 @@
         ]
     },
     "library": {
-        "code": "library",
         "name": "Library",
         "type": "basic",
-        "description": "$name will manage the library and study.\n\n[color=yellow]Provides Experience and Learning Points based on Wit and Library level.\nExperience efficiency decreases with level.[/color]",
-        "workline": "$name will be studying in the library.",
+        "description": "{fullname} will manage the library and study.\n\n[color=yellow]Provides Experience and Learning Points based on Wit and Library level.\nExperience efficiency decreases with level.[/color]",
+        "workline": "{fullname} will be studying in the library.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -62,11 +58,10 @@
         ]
     },
     "cooking": {
-        "code": "cooking",
         "name": "Cooking",
         "type": "basic",
-        "description": "$name will cook for the other residents and buy food from the market when it runs short.\n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Agility and Wit. [/color]",
-        "workline": "$name will be cooking for residents.",
+        "description": "{fullname} will cook for the other residents and buy food from the market when it runs short.\n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Agility and Wit. [/color]",
+        "workline": "{fullname} will be cooking for residents.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 1",
         "unlockreqs": "true",
         "maxnumber": 1,
@@ -78,11 +73,10 @@
         ]
     },
     "maid": {
-        "code": "maid",
         "name": "Cleaning",
         "type": "basic",
-        "description": "$name will dedicate $his time to tidying your mansion. \n\n[color=yellow]Efficiency grows with Agility and Endurance.[/color]",
-        "workline": "$name will spend $his day dedicated to cleaning your mansion.",
+        "description": "{fullname} will dedicate {his} time to tidying your mansion. \n\n[color=yellow]Efficiency grows with Agility and Endurance.[/color]",
+        "workline": "{fullname} will spend {his} day dedicated to cleaning your mansion.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -94,11 +88,10 @@
         ]
     },
     "nurse": {
-        "code": "nurse",
         "name": "Nurse",
         "type": "basic",
-        "description": "$name will help residents maintain and recover their health.\n\n[color=yellow]Efficiency grows with Wit and Magic Affinity.[/color]",
-        "workline": "$name will be watching over resident's health.",
+        "description": "{fullname} will help residents maintain and recover their health.\n\n[color=yellow]Efficiency grows with Wit and Magic Affinity.[/color]",
+        "workline": "{fullname} will be watching over resident's health.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 1,
@@ -109,11 +102,10 @@
         ]
     },
     "whorewimborn": {
-        "code": "whorewimborn",
         "name": "W - Prostitution",
         "type": "sexual",
-        "description": "$name will be assigned to the town's brothel as a common whore.\n\n[color=yellow]\nEfficiency grows with Charm, Endurance, Beauty and basic sexual actions. \n\nRequires unlocked sex actions for sufficient performance.[/color]",
-        "workline": "$name will whore $himself at the brothel.",
+        "description": "{fullname} will be assigned to the town's brothel as a common whore.\n\n[color=yellow]\nEfficiency grows with Charm, Endurance, Beauty and basic sexual actions. \n\nRequires unlocked sex actions for sufficient performance.[/color]",
+        "workline": "{fullname} will whore {himself} at the brothel.",
         "reqs": "true",
         "unlockreqs": "globals.state.sidequests.brothel >= 2",
         "maxnumber": 0,
@@ -126,11 +118,10 @@
         ]
     },
     "escortwimborn": {
-        "code": "escortwimborn",
         "name": "W - Escort",
         "type": "sexual",
-        "description": "$name will be assigned to the town's brothel as a high class whore for rich men. \n\n[color=yellow]Requires grade of a [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Charm, Confidence, Beauty and your reputation. [/color]",
-        "workline": "$name will be earning money as an escort for rich people.",
+        "description": "{fullname} will be assigned to the town's brothel as a high class whore for rich men. \n\n[color=yellow]Requires grade of a [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Charm, Confidence, Beauty and your reputation. [/color]",
+        "workline": "{fullname} will be earning money as an escort for rich people.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 2",
         "unlockreqs": "globals.state.sidequests.brothel >= 2",
         "maxnumber": 0,
@@ -143,11 +134,10 @@
         ]
     },
     "fucktoywimborn": {
-        "code": "fucktoywimborn",
         "name": "W - Exotic Whore",
         "type": "sexual",
-        "description": "$name will be used by the most deviant men in the brothel. \n\n[color=yellow]Efficiency grows with Courage, Endurance, Beauty, and advanced sex actions. \n\nRequires unlocked advanced sex actions for sufficient performance. [/color]",
-        "workline": "$name will be earning money by offering $his body for all sorts of deviant plays.",
+        "description": "{fullname} will be used by the most deviant men in the brothel. \n\n[color=yellow]Efficiency grows with Courage, Endurance, Beauty, and advanced sex actions. \n\nRequires unlocked advanced sex actions for sufficient performance. [/color]",
+        "workline": "{fullname} will be earning money by offering {his} body for all sorts of deviant plays.",
         "reqs": "true",
         "unlockreqs": "globals.state.sidequests.brothel >= 2",
         "maxnumber": 0,
@@ -160,11 +150,10 @@
         ]
     },
     "fucktoy": {
-        "code": "fucktoy",
         "name": "U - Fucktoy",
         "type": "sexual",
-        "description": "$name will be subjugated and abused by all sorts of criminals in Umbra without $his consent. \n\n[color=yellow]Builds obedience in exchange for mental degeneration. Income is based on your negative reputation. [/color]",
-        "workline": "$name will be subjugated and abused by all sorts of criminals in Umbra without $his consent. ",
+        "description": "{fullname} will be subjugated and abused by all sorts of criminals in Umbra without {his} consent. \n\n[color=yellow]Builds obedience in exchange for mental degeneration. Income is based on your negative reputation. [/color]",
+        "workline": "{fullname} will be subjugated and abused by all sorts of criminals in Umbra without {his} consent. ",
         "reqs": "true",
         "unlockreqs": "globals.state.portals.umbra.enabled == true",
         "maxnumber": 0,
@@ -176,11 +165,10 @@
         ]
     },
     "storewimborn": {
-        "code": "storewimborn",
         "name": "W - Market",
         "type": "social",
-        "description": "$name will attempt to sell excessive supplies or will try to make some profit by speculating with cheap products. \n\n[color=yellow]Efficiency grows with Charm, Wit and Grade. [/color]",
-        "workline": "$name will be working at the town's market.",
+        "description": "{fullname} will attempt to sell excessive supplies or will try to make some profit by speculating with cheap products. \n\n[color=yellow]Efficiency grows with Charm, Wit and Grade. [/color]",
+        "workline": "{fullname} will be working at the town's market.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -194,11 +182,10 @@
         ]
     },
     "assistwimborn": {
-        "code": "assistwimborn",
         "name": "W - Mage Order Assistant",
         "type": "social",
-        "description": "$name will work as a staff member on various guild assignments. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Magic Affinity, Wits and your reputation.[/color]",
-        "workline": "$name will be working for the Mage's Order.",
+        "description": "{fullname} will work as a staff member on various guild assignments. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Magic Affinity, Wits and your reputation.[/color]",
+        "workline": "{fullname} will be working for the Mage's Order.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 2 && globals.currentslave.traits.has('Mute') == false ",
         "unlockreqs": "globals.state.rank >= 2",
         "maxnumber": 0,
@@ -211,11 +198,10 @@
         ]
     },
     "artistwimborn": {
-        "code": "artistwimborn",
         "name": "W - Public Entertainer",
         "type": "social",
-        "description": "$name will earn money by doing dances, shows and other stage performances. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Charm, Courage, Agility and beauty.[/color]",
-        "workline": "$name will be working as a public entertainer.",
+        "description": "{fullname} will earn money by doing dances, shows and other stage performances. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. \n\nEfficiency grows with Charm, Courage, Agility and beauty.[/color]",
+        "workline": "{fullname} will be working as a public entertainer.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 2 && globals.currentslave.traits.has('Mute') == false",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -228,11 +214,10 @@
         ]
     },
     "lumberer": {
-        "code": "lumberer",
         "name": "F - Lumberer",
         "type": "social",
-        "description": "$name will be cutting down trees near Frostford for a woodcutting company. [color=yellow]\n\nEfficiency grows with Strength and Endurance.[/color]",
-        "workline": "$name will be cutting down trees near Frostford.",
+        "description": "{fullname} will be cutting down trees near Frostford for a woodcutting company. [color=yellow]\n\nEfficiency grows with Strength and Endurance.[/color]",
+        "workline": "{fullname} will be cutting down trees near Frostford.",
         "reqs": "true",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -244,11 +229,10 @@
         ]
     },
     "ffprostitution": {
-        "code": "ffprostitution",
         "name": "F - Prostitution",
         "type": "sexual",
-        "description": "$name will be serving lone customers with $his body at Frostford. \n\n[color=yellow]\n\nEfficiency grows with Charm and beauty.[/color]",
-        "workline": "$name will be serving lone customers with $his body in the streets of Frostford.",
+        "description": "{fullname} will be serving lone customers with {his} body at Frostford. \n\n[color=yellow]\n\nEfficiency grows with Charm and beauty.[/color]",
+        "workline": "{fullname} will be serving lone customers with {his} body in the streets of Frostford.",
         "reqs": "globals.currentslave.tags.find('nosex') < 0",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -261,11 +245,10 @@
         ]
     },
     "guardian": {
-        "code": "guardian",
         "name": "G - Guardian",
         "type": "social",
-        "description": "$name will be patrolling streets with Gorn's city guard. \n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Strength, Courage.[/color]",
-        "workline": "$name will be patrolling streets with Gorn's city guard.",
+        "description": "{fullname} will be patrolling streets with Gorn's city guard. \n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Strength, Courage.[/color]",
+        "workline": "{fullname} will be patrolling streets with Gorn's city guard.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 1 && globals.currentslave.traits.has('Mute') == false && globals.currentslave.traits.has('Mute') == false ",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -277,11 +260,10 @@
         ]
     },
     "research": {
-        "code": "research",
         "name": "U - Research Subject",
         "type": "social",
-        "description": "$name will be used in harsh experiments in Umbra. \n\n[color=yellow]\n\nWill earn a lot of money, but quickly deteriorate physical and mental health.[/color] \n[color=#ff4949]Can have negative consequences and even sometimes kill the servant. [/color]",
-        "workline": "$name will be used in harsh experiments in Umbra.",
+        "description": "{fullname} will be used in harsh experiments in Umbra. \n\n[color=yellow]\n\nWill earn a lot of money, but quickly deteriorate physical and mental health.[/color] \n[color=#ff4949]Can have negative consequences and even sometimes kill the servant. [/color]",
+        "workline": "{fullname} will be used in harsh experiments in Umbra.",
         "reqs": "true",
         "unlockreqs": "globals.state.portals.umbra.enabled == true",
         "maxnumber": 0,
@@ -292,11 +274,10 @@
         ]
     },
     "slavecatcher": {
-        "code": "slavecatcher",
         "name": "G - Slave Catcher",
         "type": "social",
-        "description": "$name will be joining slaver parties and help catching and transporting slaves. \n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Agility, Strength and Courage.[/color]",
-        "workline": "$name will be joining slaver parties and help catching and transporting slaves around Gorn.",
+        "description": "{fullname} will be joining slaver parties and help catching and transporting slaves. \n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. \n\nEfficiency grows with Agility, Strength and Courage.[/color]",
+        "workline": "{fullname} will be joining slaver parties and help catching and transporting slaves around Gorn.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 1",
         "unlockreqs": "true",
         "maxnumber": 0,
@@ -309,11 +290,10 @@
         ]
     },
     "headgirl": {
-        "code": "headgirl",
         "name": "Headgirl",
         "type": "social",
-        "description": "$name will watch over other servants, improving their behavior. \n\n[color=yellow]Requires grade of [color=aqua]Rich[/color] or higher. ",
-        "workline": "$name will be directing and managing other residents.",
+        "description": "{fullname} will watch over other servants, improving their behavior. \n\n[color=yellow]Requires grade of [color=aqua]Rich[/color] or higher. ",
+        "workline": "{fullname} will be directing and managing other residents.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 3 && globals.currentslave.traits.has('Mute') == false ",
         "unlockreqs": "globals.slaves.size() >= 8",
         "maxnumber": 1,
@@ -325,11 +305,10 @@
         ]
     },
     "jailer": {
-        "code": "jailer",
         "name": "Jailer",
         "type": "social",
-        "description": "$name will be feeding and watching over your prisoners.\n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. ",
-        "workline": "$name will be managing prisoners.",
+        "description": "{fullname} will be feeding and watching over your prisoners.\n\n[color=yellow]Requires grade of [color=aqua]Poor[/color] or higher. ",
+        "workline": "{fullname} will be managing prisoners.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 1",
         "unlockreqs": "true",
         "maxnumber": 1,
@@ -341,11 +320,10 @@
         ]
     },
     "farmmanager": {
-        "code": "farmmanager",
         "name": "Farm Manager",
         "type": "basic",
-        "description": "$name will be managing your farm and slaves assigned to it. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. ",
-        "workline": "$name will be looking over your farm and collect its income.",
+        "description": "{fullname} will be managing your farm and slaves assigned to it. \n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. ",
+        "workline": "{fullname} will be looking over your farm and collect its income.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 2",
         "unlockreqs": "globals.state.farm >= 3",
         "maxnumber": 1,
@@ -357,11 +335,10 @@
         ]
     },
     "labassist": {
-        "code": "labassist",
         "name": "Laboratory Assistant",
         "type": "basic",
-        "description": "$name will be helping out and managing your laboratory operations.\n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. ",
-        "workline": "$name will be assisting you in the laboratory.",
+        "description": "{fullname} will be helping out and managing your laboratory operations.\n\n[color=yellow]Requires grade of [color=aqua]Commoner[/color] or higher. ",
+        "workline": "{fullname} will be assisting you in the laboratory.",
         "reqs": "globals.originsarray.find(globals.currentslave.origins) >= 2",
         "unlockreqs": "globals.state.mansionupgrades.mansionlab >= 1",
         "maxnumber": 1,

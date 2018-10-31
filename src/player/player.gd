@@ -10,10 +10,10 @@ var bonus_points = 2
 # Initialization.
 func _init():
 	id = 0
-	gender = 'male'
-	age = 'teen'
-	origin = 'poor'
-	stats.strength.m = 4
-	stats.agility.m = 4
-	stats.magic.m = 4
-	stats.endurance.m = 4
+	gender = "male"
+	age = "teen"
+	origin = "poor"
+	stats.strength.max = 4
+	stats.agility.max = 4
+	stats.magic.max = 4
+	stats.endurance.max = 4

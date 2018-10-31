@@ -166,18 +166,18 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StreamTexture" id=25]
+[sub_resource type="StreamTexture" id=12]
 
 flags = 4
 load_path = "res://.import/panel_2.png-fe103c1a6b9fd786904b3fbf0a3de5dc.stex"
 
-[sub_resource type="StyleBoxTexture" id=19]
+[sub_resource type="StyleBoxTexture" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = SubResource( 25 )
+texture = SubResource( 12 )
 region_rect = Rect2( 0, 0, 860, 682 )
 margin_left = 2.0
 margin_right = 2.0
@@ -191,7 +191,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=20]
+[sub_resource type="StyleBoxTexture" id=14]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -210,7 +210,7 @@ expand_margin_bottom = 0.0
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=21]
+[sub_resource type="StyleBoxTexture" id=15]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -230,7 +230,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Expand Margin", "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=22]
+[sub_resource type="StyleBoxTexture" id=16]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -250,7 +250,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=23]
+[sub_resource type="StyleBoxTexture" id=17]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -270,7 +270,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=24]
+[sub_resource type="StyleBoxTexture" id=18]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -290,7 +290,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=18]
+[sub_resource type="StyleBoxTexture" id=19]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -522,7 +522,7 @@ PopupMenu/icons/radio_unchecked = ExtResource( 6 )
 PopupMenu/icons/submenu = null
 PopupMenu/icons/unchecked = ExtResource( 6 )
 PopupMenu/styles/hover = null
-PopupMenu/styles/panel = SubResource( 19 )
+PopupMenu/styles/panel = SubResource( 13 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 PopupPanel/styles/panel = null
@@ -561,9 +561,9 @@ TabContainer/icons/increment = null
 TabContainer/icons/increment_highlight = null
 TabContainer/icons/menu = null
 TabContainer/icons/menu_highlight = null
-TabContainer/styles/panel = SubResource( 20 )
-TabContainer/styles/tab_bg = SubResource( 21 )
-TabContainer/styles/tab_fg = SubResource( 22 )
+TabContainer/styles/panel = SubResource( 14 )
+TabContainer/styles/tab_bg = SubResource( 15 )
+TabContainer/styles/tab_fg = SubResource( 16 )
 Tabs/colors/font_color_bg = Color( 0.686275, 0.686275, 0.686275, 1 )
 Tabs/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Tabs/colors/font_color_fg = Color( 1, 1, 1, 1 )
@@ -674,10 +674,10 @@ VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
 VScrollBar/icons/increment_highlight = null
-VScrollBar/styles/grabber = SubResource( 23 )
-VScrollBar/styles/grabber_highlight = SubResource( 24 )
+VScrollBar/styles/grabber = SubResource( 17 )
+VScrollBar/styles/grabber_highlight = SubResource( 18 )
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 18 )
+VScrollBar/styles/scroll = SubResource( 19 )
 VScrollBar/styles/scroll_focus = null
 VSeparator/constants/separation = 4
 VSeparator/styles/separator = null
