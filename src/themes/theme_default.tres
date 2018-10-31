@@ -169,7 +169,7 @@ _sections_unfolded = [ "Margin" ]
 [sub_resource type="StreamTexture" id=12]
 
 flags = 4
-load_path = "res://.import/panel_2.png-fe103c1a6b9fd786904b3fbf0a3de5dc.stex"
+load_path = ""
 
 [sub_resource type="StyleBoxTexture" id=13]
 

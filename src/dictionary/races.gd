@@ -1,6 +1,6 @@
 # Get list of properties by given race and property.
 static func list(race, properties = []):
-	var races = global.read_json("res://assets/data/races.json")
+	var races = globals.read_json("res://assets/data/races.json")
 	
 	var list = {}
 	if properties.empty():

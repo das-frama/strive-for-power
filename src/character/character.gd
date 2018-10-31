@@ -114,7 +114,7 @@ func random_name():
 # Get random name from names.json.
 func _get_random_name(race, gender):
 	# Read all available names.
-	var names = global.read_json("res://assets/data/names.json")
+	var names = globals.read_json("res://assets/data/names.json")
 	
 	if not names.has(race):
 		race = "human"
@@ -128,7 +128,7 @@ func _get_random_name(race, gender):
 # Generate random apperance by race.
 # see assets/data/race.json
 func random_appearance():
-	var races = global.read_json("res://assets/data/races.json")
+	var races = globals.read_json("res://assets/data/races.json")
 	if not races.has(race):
 		return
 	
@@ -149,7 +149,7 @@ func random_appearance():
 # Generate random sexual features by gender.
 # see assets/data/sexual.json
 func random_sexuals():
-	var sexuals = global.read_json("res://assets/data/sexual.json")
+	var sexuals = globals.read_json("res://assets/data/sexual.json")
 	for key in sexuals:
 		if not key in self:
 			continue
@@ -182,7 +182,7 @@ func random_sexuals():
 
 # Generate random trait
 func random_trait():
-	var traits = global.traits.get_any()
+	var traits = globals.traits.get_any()
 	var index = randi() % traits.size()
 	add_trait(traits[index])
 
@@ -197,7 +197,7 @@ func get_trait(key):
 		return null
 
 func add_trait(key):
-	var traits = global.read_json("res://assets/data/traits.json")
+	var traits = globals.read_json("res://assets/data/traits.json")
 	if not traits.has(key):
 		return false
 		

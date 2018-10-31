@@ -16,5 +16,5 @@ static func get(key):
 		return null
 		
 static func list():
-	return global.read_json("res://assets/data/specs.json")
+	return globals.read_json("res://assets/data/specs.json")
 	

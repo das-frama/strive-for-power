@@ -3,7 +3,7 @@ extends Control
 # Initialization.
 func _ready():
 	# Set version.
-	$Version.set_text("ver. %s" % global.VERSION)
+	$Version.set_text("ver. %s" % globals.VERSION)
 
 ## Social Section
 # Patreon

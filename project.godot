@@ -18,7 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 settings="*res://src/settings.gd"
-global="*res://src/global.gd"
+globals="*res://src/globals.gd"
+input_handler="*res://src/input_handler.gd"
 
 [display]
 

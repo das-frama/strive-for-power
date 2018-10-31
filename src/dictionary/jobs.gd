@@ -1,2 +1,2 @@
 static func list():
-	return global.read_json("res://assets/data/jobs.json")
+	return globals.read_json("res://assets/data/jobs.json")

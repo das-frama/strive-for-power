@@ -1,6 +1,6 @@
 # Get list of properties by gender and age.
 static func list(gender, age, properties = []):
-	var sexuals = global.read_json("res://assets/data/sexual.json")
+	var sexuals = globals.read_json("res://assets/data/sexual.json")
 	
 	var list = {}
 	if properties.empty():

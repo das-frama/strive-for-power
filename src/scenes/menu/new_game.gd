@@ -78,7 +78,7 @@ func _populate_races_list():
 		
 	var RaceButton = RaceList.get_node("BaseButton")
 	# Open .json file with races. It's almost a data base.
-	var races = global.read_json("res://assets/data/races.json")
+	var races = globals.read_json("res://assets/data/races.json")
 	# Iterate over races and duplicate base button.
 	for key in races:
 		var race = races[key]
@@ -92,7 +92,7 @@ func _populate_races_list():
 	
 # Set race.
 func _select_race(race_key):
-	var races = global.read_json("res://assets/data/races.json")
+	var races = globals.read_json("res://assets/data/races.json")
 	# Get race object.
 	var race_object = races[race_key]	
 	# Set description.
@@ -115,7 +115,7 @@ func _load_portraits():
 	if _portraits_textures.size() > 0:
 		return
 		
-	var files = global.read_dir(PORTRAIT_PATH)
+	var files = globals.read_dir(PORTRAIT_PATH)
 	for file in files:
 		_portraits_textures.append(load(file))
 		
@@ -204,10 +204,10 @@ func _populate_appearance():
 	Virgin.visible = _player.has_vagina
 	# Others.
 	var apperance_list = {}
-	global.merge_dict(apperance_list, global.races.list(_player.race, ["eye_color", "hair_color", "ears", "fur_color", "penis_type", "skin", "horns", "wings", "tail"]))
-	global.merge_dict(apperance_list, global.sexuals.list(_player.gender, _player.age))
+	globals.merge_dict(apperance_list, globals.races.list(_player.race, ["eye_color", "hair_color", "ears", "fur_color", "penis_type", "skin", "horns", "wings", "tail"]))
+	globals.merge_dict(apperance_list, globals.sexuals.list(_player.gender, _player.age))
 	for NodeElement in get_tree().get_nodes_in_group("player_property"):
-		var key = global.to_snake_case(NodeElement.name)
+		var key = globals.to_snake_case(NodeElement.name)
 		if apperance_list.has(key):
 			_populate_option_button(NodeElement, key, apperance_list[key])
 		else:
@@ -251,7 +251,7 @@ func _populate_traits():
 	TraitList.set_meta("loaded", true)
 		
 	var TraitButton = TraitList.get_node("BaseButton")
-	var traits = global.read_json("res://assets/data/traits.json")
+	var traits = globals.read_json("res://assets/data/traits.json")
 	# Iterate over traits and duplicate base button.
 	for key in traits:
 		var trait = traits[key]
@@ -265,7 +265,7 @@ func _populate_traits():
 func _select_trait(button_pressed, key, TraitButton):
 	var Description = StagePanels.get_node("Trait/HBox/Description")
 	
-	var traits = global.read_json("res://assets/data/traits.json")		
+	var traits = globals.read_json("res://assets/data/traits.json")		
 	var text = traits[key].description
 	Description.set_bbcode(_player.process_labels(text))
 	# Add / remove trait.
@@ -284,7 +284,7 @@ func _populate_jobs():
 		return
 	JobList.set_meta("loaded", true)
 	var JobButton = JobList.get_node("BaseButton")
-	var jobs = global.jobs.list()
+	var jobs = globals.jobs.list()
 	# Iterate over jobs and duplicate base button.
 	for key in jobs:
 		var job = jobs[key]
@@ -297,7 +297,7 @@ func _populate_jobs():
 	pass
 	
 func _select_job(key):
-	var jobs = global.jobs.list()
+	var jobs = globals.jobs.list()
 	var Description = StagePanels.get_node("JobsSpecs/HBox/Description")
 	var text = jobs[key].description
 	Description.set_bbcode(_player.process_labels(text))
@@ -311,7 +311,7 @@ func _populate_specs():
 	SpecList.set_meta("loaded", true)
 		
 	var SpecButton = SpecList.get_node("BaseButton")
-	var specs = global.specs.list()
+	var specs = globals.specs.list()
 	# Iterate over specs and duplicate base button.
 	for key in specs:
 		var spec = specs[key]
@@ -325,7 +325,7 @@ func _populate_specs():
 func _select_spec(key, SpecButton):
 	var Description = StagePanels.get_node("JobsSpecs/HBox/Description")
 	
-	var specs = global.specs.list()
+	var specs = globals.specs.list()
 	if specs[key].has("rules") && not _player.check_requirements(specs[key].rules):
 		Description.set_bbcode("Does not meet the requirements")
 		SpecButton.set_pressed(false)
@@ -370,7 +370,7 @@ func _on_confirm_pressed(stage):
 		STAGE_APPEARANCE:
 			pass
 		STAGE_JOB:
-			var items = global.read_json("res://assets/data/items.json")
+			var items = globals.read_json("res://assets/data/items.json")
 			_player.inventory.add_item(items.food)
 			_player.inventory.add_item(items.food)
 			_player.inventory.add_item(items.supply)
