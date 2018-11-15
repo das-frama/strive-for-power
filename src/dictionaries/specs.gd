@@ -1,3 +1,7 @@
+# specs.gd
+# Imports.
+const Util = preload("res://src/util.gd")
+
 static func player_list():
 	var specs = list()
 	var result = {}
@@ -16,5 +20,5 @@ static func get(key):
 		return null
 		
 static func list():
-	return globals.read_json("res://assets/data/specs.json")
+	return Util.read_json("res://assets/data/specs.json")
 	

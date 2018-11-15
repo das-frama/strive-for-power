@@ -1,7 +1,5 @@
-extends Node
-
 # Imports.
-var Item = preload("res://src/inventory/item.gd")
+var Item = preload("item.gd")
 
 var cells = 0 # Zero = Endless.
 

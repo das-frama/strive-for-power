@@ -1,17 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/intro.png" type="Texture" id=2]
 [ext_resource path="res://assets/music/opening.ogg" type="AudioStream" id=3]
-[ext_resource path="res://src/fonts/titlefont.font" type="BitmapFont" id=4]
+[ext_resource path="res://assets/fonts/titlefont.font" type="BitmapFont" id=4]
 [ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=5]
 [ext_resource path="res://assets/ui/panels/panel_2.png" type="Texture" id=6]
 [ext_resource path="res://assets/ui/socials/patreonlogo.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/socials/bloggerlogo.png" type="Texture" id=8]
 [ext_resource path="res://assets/ui/socials/itchio.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/ui/socials/wiki.png" type="Texture" id=10]
-[ext_resource path="res://src/scenes/menu/options.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/scenes/menu/new_game.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/scenes/menu/new_game.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scenes/menu/load_game.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/scenes/menu/options.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -33,7 +34,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Axis Stretch", "Content Margin", "Margin", "Modulate" ]
 
-[node name="Menu" type="Control" index="0"]
+[node name="Menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -251,7 +252,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="MenuPanel" type="PanelContainer" parent="." index="4"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -275,9 +275,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 119.0
+margin_left = 98.0
 margin_top = 24.0
-margin_right = 289.0
+margin_right = 310.0
 margin_bottom = 510.0
 rect_min_size = Vector2( 170, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -299,7 +299,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -315,10 +315,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "New Game"
+text = "MENU_NEW_GAME"
 flat = false
 align = 1
-_sections_unfolded = [ "Grow Direction", "Size Flags", "Theme", "custom_constants" ]
+_sections_unfolded = [ "custom_constants" ]
 
 [node name="Load" type="Button" parent="MenuPanel/VBoxMenu" index="1"]
 
@@ -327,7 +327,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 71.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -342,7 +342,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Load"
+text = "MENU_LOAD_GAME"
 flat = false
 align = 1
 
@@ -353,11 +353,12 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 142.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 207.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "Select options"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -368,9 +369,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Options"
+text = "MENU_OPTIONS"
 flat = false
 align = 1
+_sections_unfolded = [ "Hint" ]
 
 [node name="Credits" type="Button" parent="MenuPanel/VBoxMenu" index="3"]
 
@@ -379,7 +381,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 213.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 278.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -394,7 +396,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Credits"
+text = "MENU_CREDITS"
 flat = false
 align = 1
 
@@ -405,7 +407,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 284.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 349.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -420,7 +422,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Mods"
+text = "MENU_MODS"
 flat = false
 align = 1
 
@@ -431,7 +433,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 355.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 420.0
 rect_min_size = Vector2( 0, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -446,7 +448,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Changelog"
+text = "MENU_CHANGELOG"
 flat = false
 align = 1
 
@@ -457,7 +459,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 426.0
-margin_right = 170.0
+margin_right = 212.0
 margin_bottom = 486.0
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -472,12 +474,20 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Exit"
+text = "MENU_EXIT"
 flat = false
 align = 1
 _sections_unfolded = [ "Pause", "Rect" ]
 
-[node name="Options" parent="." index="5" instance=ExtResource( 11 )]
+[node name="NewGame" parent="." index="5" instance=ExtResource( 11 )]
+
+visible = false
+
+[node name="LoadGame" parent="." index="6" instance=ExtResource( 12 )]
+
+visible = false
+
+[node name="Options" parent="." index="7" instance=ExtResource( 13 )]
 
 visible = false
 margin_left = -585.0
@@ -485,14 +495,7 @@ margin_top = -365.0
 margin_right = 584.0
 margin_bottom = 365.0
 
-[node name="NewGame" parent="." index="6" instance=ExtResource( 12 )]
-
-margin_left = -704.0
-margin_top = -351.0
-margin_right = 703.0
-margin_bottom = 351.0
-
-[node name="Version" type="Label" parent="." index="7"]
+[node name="Version" type="Label" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -525,7 +528,11 @@ max_lines_visible = -1
 
 [connection signal="pressed" from="MenuPanel/VBoxMenu/NewGame" to="." method="_on_new_game_pressed"]
 
+[connection signal="pressed" from="MenuPanel/VBoxMenu/Load" to="." method="_on_load_pressed"]
+
 [connection signal="pressed" from="MenuPanel/VBoxMenu/Options" to="." method="_on_options_pressed"]
+
+[connection signal="pressed" from="MenuPanel/VBoxMenu/Credits" to="." method="_on_credits_pressed"]
 
 [connection signal="pressed" from="MenuPanel/VBoxMenu/Exit" to="." method="_on_exit_pressed"]
 

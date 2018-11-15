@@ -1,19 +1,19 @@
-extends Node
-
-var id
-var code
+# item.gd
+var id = 0
+var code = ""
+var name = ""
 var icon setget load_icon
-var description
-var effect
-var recipe
-var cost
-var type
-var amount
-var weight
-var stackable
-var requires
+var description = ""
+var effect = ""
+var recipe = ""
+var cost = 0
+var type = ""
+var amount = 1
+var weight = 0
+var stackable = true
+var requires = true
 
-var icon_texture
+var icon_texture = null
 
 func _init(item = {}):
 	for property in item:

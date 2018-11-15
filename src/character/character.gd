@@ -1,22 +1,24 @@
-extends Node
-
+# character.gd
 # Imports.
-var Inventory = preload("res://src/inventory/inventory.gd")
+const Description = preload("res://src/character/description.gd")
+const Util        = preload("res://src/util.gd")
+const Traits      = preload("res://src/dictionaries/traits.gd")
+const Jobs        = preload("res://src/dictionaries/jobs.gd")
 
 # Base.
-var id
-var first_name
-var last_name
+var id = null
+var first_name = ""
+var last_name = ""
 var health = 100
-var nickname
+var nickname = ""
 
 # Origin.
-var race
-var race_name
+var race = ""
+var race_name = ""
 var gender setget gender_set
-var age
-var origin
-var portrait_path
+var age = ""
+var origin = "slave"
+var portrait_path = ""
 
 # Appearance.
 var body_shape = "humanoid"
@@ -26,21 +28,25 @@ var ears = "human"
 var tail = "none"
 var wings = "none"
 var horns = "none"
-var eye_color
-var eye_sclera
-var fur_color
-var skin
+var eye_color = ""
+var eye_sclera = ""
+var eye_shape = ""
+var fur_color = ""
+var skin = ""
+var skin_cover = ""
+var beauty = 0
 
 # Sexual.
-var height
-var hair_length
-var hair_style
-var hair_color
-var butt_size
-var breast_size
+var height = ""
+var hair_length = ""
+var hair_style = ""
+var hair_color = ""
+var butt_size = ""
+var breast_size = ""
 var has_penis = true
 var penis_type = "human"
 var penis_size = "normal"
+var has_testicles = true
 var testicle_size = "normal"
 var has_vagina = false
 
@@ -70,27 +76,33 @@ var stats = {
 
 # Activities.
 var job = "rest"
-var spec
+var sleep = null
+var spec = null
 
-var inventory
+var description = null
 
 # Character's lists.
 var _traits = []
 var _effects = {}
 
 # Constructor.
-func _init(r = null, a = null, g = null, o = "slave", generate_random = false):
-	race = r
-	age = a
-	gender = g
-	origin = o
-	inventory = Inventory.new()
+func _init(id = null, generate_random = false):
+	if id == null:
+		autoinc_id()
 	
 	if generate_random:
+		random_gender()
+		random_race()
 		random_name()
 		random_appearance()
 		random_sexuals()
 		random_trait()
+		
+	description = Description.new(self)	
+		
+# Autoincrement ID.
+func autoinc_id():
+	id = globals.state.get_autoinc("character")
 	
 # Setter for gender.
 func gender_set(new_gender):
@@ -98,23 +110,25 @@ func gender_set(new_gender):
 	match new_gender:
 		"male":
 			has_penis = true
+			has_testicles = true
 			has_vagina = false
 		"female":
 			has_penis = false
 			has_vagina = true
+			has_testicles = false
 		"futanari":
 			has_penis = true
 			has_vagina = true
+			has_testicles = true
 			
 # Generate random name by race and gender.
 func random_name():
 	first_name = _get_random_name(race, gender)
-	last_name = _get_random_name(race, "surname") # TODO (frama): may be we should find a better way to fetch surnames.
+	last_name  = _get_random_name(race, "surname") # TODO (frama): may be we should find a better way to fetch surnames.
 	
 # Get random name from names.json.
 func _get_random_name(race, gender):
-	# Read all available names.
-	var names = globals.read_json("res://assets/data/names.json")
+	var names = Util.read_json("res://assets/data/names.json")
 	
 	if not names.has(race):
 		race = "human"
@@ -125,16 +139,26 @@ func _get_random_name(race, gender):
 	var index = randi() % names[race][gender].size()
 	return names[race][gender][index]
 	
+func random_gender():
+	var genders = ["male", "female", "futanari"]
+	self.set("gender", genders[randi() % genders.size()])
+	
+func random_race():
+	var races = Util.read_json("res://assets/data/races.json").keys()
+	race = races[randi() % races.size()]
+	
 # Generate random apperance by race.
 # see assets/data/race.json
 func random_appearance():
-	var races = globals.read_json("res://assets/data/races.json")
+	var races = Util.read_json("res://assets/data/races.json")
 	if not races.has(race):
 		return
 	
 	# Set class members by race.
 	for key in races[race]:
 		if not key in self:
+			continue
+		if key in ["description", "details", "bonus"]:
 			continue
 		# If type is array.
 		match typeof(races[race][key]):
@@ -149,7 +173,7 @@ func random_appearance():
 # Generate random sexual features by gender.
 # see assets/data/sexual.json
 func random_sexuals():
-	var sexuals = globals.read_json("res://assets/data/sexual.json")
+	var sexuals = Util.read_json("res://assets/data/sexual.json")
 	for key in sexuals:
 		if not key in self:
 			continue
@@ -182,7 +206,7 @@ func random_sexuals():
 
 # Generate random trait
 func random_trait():
-	var traits = globals.traits.get_any()
+	var traits = Traits.get_any()
 	var index = randi() % traits.size()
 	add_trait(traits[index])
 
@@ -197,7 +221,7 @@ func get_trait(key):
 		return null
 
 func add_trait(key):
-	var traits = globals.read_json("res://assets/data/traits.json")
+	var traits = Util.read_json("res://assets/data/traits.json")
 	if not traits.has(key):
 		return false
 		
@@ -252,17 +276,33 @@ func remove_effect(key):
 				continue
 			stats[property][subproperty] -= effect[property][subproperty]
 
+# TODO (frama): Add more labels.
 func process_labels(text):
 	var result = text
-	result = result.replace("{first_name}", first_name)
-	result = result.replace("{fullname}", get_fullname())
-	result = result.replace("{He}", "He" if gender == "male" else "She")
-	result = result.replace("{he}", "he" if gender == "male" else "she")
-	result = result.replace("{His}", "His" if gender == "male" else "Her")
-	result = result.replace("{his}", "his" if gender == "male" else "her")
-	result = result.replace("{Him}", "Him" if gender == "male" else "Her")
-	result = result.replace("{him}", "him" if gender == "male" else "her")
-	# TODO (frama): Add more labels.
+	
+	var properties = inst2dict(self).keys()
+	var pronouns = {
+		"he":  [tr("PRONOUN_HE"),  tr("PRONOUN_SHE")],
+		"his": [tr("PRONOUN_HIS"), tr("PRONOUN_HER")],
+		"him": [tr("PRONOUN_HIM"), tr("PRONOUN_HER")],
+	}
+	
+	# Custom.
+	result = result.replace("$fullname", get_fullname())
+	
+	# Replace properties.
+	for property in properties:
+		if not property.begins_with('@') && not property.begins_with('_'):
+			var value = self.get(property)
+			if typeof(value) in [TYPE_STRING, TYPE_INT, TYPE_REAL]:
+				result = result.replace("$%s" % property, value)
+	
+	# Replace pronouns.
+	for pronoun in pronouns:
+		var index = 0 if gender == "male" else 1
+		result = result.replace("$%s" % pronoun.capitalize(), pronouns[pronoun][index].capitalize())
+		result = result.replace("$%s" % pronoun, pronouns[pronoun][index])
+		
 	return result
 
 func check_requirements(rules):
@@ -308,4 +348,29 @@ func check_requirements(rules):
 	return false
 
 func get_fullname():
-	return first_name + " " + last_name
+	if nickname.empty():
+		return "%s %s" % [first_name, last_name]
+	else:
+		return "%s \"%s\" %s" % [first_name, nickname, last_name]
+
+# Invoke character's job conditions.
+func invoke_conditions():
+	var jobs = Jobs.list()
+	if not jobs.has(job):
+		return
+		
+	var j = jobs[job]
+	if not j.has("conditions"):
+		return
+		
+	# Run all conditions.
+	for method in j["conditions"]:
+		if not Jobs.has_method(method):
+			continue
+		
+		var f = funcref(Jobs, method)
+		var fd = {
+			method: f
+		}
+		fd[method].call_func(j["conditions"][method])
+	

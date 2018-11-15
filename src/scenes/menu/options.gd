@@ -6,7 +6,7 @@ onready var GameNode = $TabContainer/Game/VBox
 # Initialization
 func _ready():
 	# Setting all buttons according to current state.
-	SettingsNode.get_node("VBoxLeft/Fullscreen").set_pressed(settings.get_setting("settings", "fullscreen"))
+	SettingsNode.get_node("VBoxLeft/Fullscreen").set_pressed(settings.get_setting("window", "fullscreen"))
 	SettingsNode.get_node("VBoxLeft/UseAnimation").set_pressed(settings.get_setting("settings", "use_animation"))
 	SettingsNode.get_node("VBoxLeft/ShowSprites").set_pressed(settings.get_setting("settings", "show_sprites"))
 	SettingsNode.get_node("VBoxLeft/SkipCombatAnimation").set_pressed(settings.get_setting("settings", "skip_combat"))

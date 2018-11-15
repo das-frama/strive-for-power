@@ -9,14 +9,15 @@
 [ext_resource path="res://assets/ui/lineedit/textfield_focus.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/lineedit/textfield_normal.png" type="Texture" id=8]
 [ext_resource path="res://assets/ui/buttons/arrows.png" type="Texture" id=9]
-[ext_resource path="res://assets/ui/panels/panel_1.png" type="Texture" id=10]
-[ext_resource path="res://assets/ui/panels/frame_1.png" type="Texture" id=11]
-[ext_resource path="res://assets/ui/tabs/tab-bg.png" type="Texture" id=12]
-[ext_resource path="res://assets/ui/tabs/tab-fg.png" type="Texture" id=13]
-[ext_resource path="res://assets/ui/vscroll/vscroll_grabber.png" type="Texture" id=14]
-[ext_resource path="res://assets/ui/vscroll/vscroll_grabber_highlight.png" type="Texture" id=15]
-[ext_resource path="res://assets/ui/vscroll/vscroll.png" type="Texture" id=16]
-[ext_resource path="res://src/fonts/default_ui_font.tres" type="DynamicFont" id=17]
+[ext_resource path="res://src/themes/textures/main_panel.tres" type="StyleBox" id=10]
+[ext_resource path="res://assets/ui/panels/panel_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/panels/frame_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/tabs/tab-bg.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/tabs/tab-fg.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/vscroll/vscroll_grabber.png" type="Texture" id=15]
+[ext_resource path="res://assets/ui/vscroll/vscroll_grabber_highlight.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/vscroll/vscroll.png" type="Texture" id=17]
+[ext_resource path="res://src/fonts/default_ui_font.tres" type="DynamicFont" id=18]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -129,30 +130,11 @@ draw_center = true
 
 [sub_resource type="StyleBoxTexture" id=10]
 
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
-region_rect = Rect2( 0, 0, 500, 500 )
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
-_sections_unfolded = [ "Axis Stretch", "Content Margin", "Resource" ]
-
-[sub_resource type="StyleBoxTexture" id=11]
-
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 500, 500 )
 margin_left = 17.0
 margin_right = 17.0
@@ -166,18 +148,18 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StreamTexture" id=12]
+[sub_resource type="StreamTexture" id=11]
 
 flags = 4
 load_path = ""
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=12]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = SubResource( 12 )
+texture = SubResource( 11 )
 region_rect = Rect2( 0, 0, 860, 682 )
 margin_left = 2.0
 margin_right = 2.0
@@ -191,13 +173,13 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=14]
+[sub_resource type="StyleBoxTexture" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 1317, 70 )
 margin_left = 25.0
 margin_right = 25.0
@@ -210,13 +192,13 @@ expand_margin_bottom = 0.0
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=15]
+[sub_resource type="StyleBoxTexture" id=14]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 156, 41 )
 margin_left = 9.0
 margin_right = 9.0
@@ -230,13 +212,13 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Expand Margin", "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=16]
+[sub_resource type="StyleBoxTexture" id=15]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 154, 44 )
 margin_left = 9.0
 margin_right = 9.0
@@ -250,27 +232,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=17]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 34, 26 )
-margin_left = 5.0
-margin_right = 5.0
-margin_top = 5.0
-margin_bottom = 5.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
-_sections_unfolded = [ "Margin" ]
-
-[sub_resource type="StyleBoxTexture" id=18]
+[sub_resource type="StyleBoxTexture" id=16]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -290,13 +252,33 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Margin" ]
 
-[sub_resource type="StyleBoxTexture" id=19]
+[sub_resource type="StyleBoxTexture" id=17]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 34, 26 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Margin" ]
+
+[sub_resource type="StyleBoxTexture" id=18]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 34, 58 )
 margin_left = 17.0
 margin_right = 17.0
@@ -312,7 +294,7 @@ _sections_unfolded = [ "Margin" ]
 
 [resource]
 
-default_font = ExtResource( 17 )
+default_font = ExtResource( 18 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.596078, 0.45098, 0.266667, 1 )
 Button/colors/font_color_hover = Color( 0.180392, 0.321569, 0.156863, 1 )
@@ -505,10 +487,10 @@ OptionButton/styles/focus = SubResource( 9 )
 OptionButton/styles/hover = ExtResource( 2 )
 OptionButton/styles/normal = ExtResource( 3 )
 OptionButton/styles/pressed = ExtResource( 4 )
-Panel/styles/panel = SubResource( 10 )
+Panel/styles/panel = ExtResource( 10 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
-PanelContainer/styles/panel = SubResource( 11 )
+PanelContainer/styles/panel = SubResource( 10 )
 PopupMenu/colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.698039, 0.698039, 0.698039, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.87451, 0.87451, 0.87451, 1 )
@@ -522,7 +504,7 @@ PopupMenu/icons/radio_unchecked = ExtResource( 6 )
 PopupMenu/icons/submenu = null
 PopupMenu/icons/unchecked = ExtResource( 6 )
 PopupMenu/styles/hover = null
-PopupMenu/styles/panel = SubResource( 13 )
+PopupMenu/styles/panel = SubResource( 12 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 PopupPanel/styles/panel = null
@@ -561,9 +543,9 @@ TabContainer/icons/increment = null
 TabContainer/icons/increment_highlight = null
 TabContainer/icons/menu = null
 TabContainer/icons/menu_highlight = null
-TabContainer/styles/panel = SubResource( 14 )
-TabContainer/styles/tab_bg = SubResource( 15 )
-TabContainer/styles/tab_fg = SubResource( 16 )
+TabContainer/styles/panel = SubResource( 13 )
+TabContainer/styles/tab_bg = SubResource( 14 )
+TabContainer/styles/tab_fg = SubResource( 15 )
 Tabs/colors/font_color_bg = Color( 0.686275, 0.686275, 0.686275, 1 )
 Tabs/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Tabs/colors/font_color_fg = Color( 1, 1, 1, 1 )
@@ -674,10 +656,10 @@ VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
 VScrollBar/icons/increment_highlight = null
-VScrollBar/styles/grabber = SubResource( 17 )
-VScrollBar/styles/grabber_highlight = SubResource( 18 )
+VScrollBar/styles/grabber = SubResource( 16 )
+VScrollBar/styles/grabber_highlight = SubResource( 17 )
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 19 )
+VScrollBar/styles/scroll = SubResource( 18 )
 VScrollBar/styles/scroll_focus = null
 VSeparator/constants/separation = 4
 VSeparator/styles/separator = null
@@ -703,5 +685,5 @@ WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
-_sections_unfolded = [ "Button", "Button/styles", "CheckBox/constants", "CheckBox/fonts", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel/styles", "PanelContainer/styles", "PopupMenu", "PopupMenu/constants", "PopupMenu/styles", "RichTextLabel/colors", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "VScrollBar/styles" ]
+_sections_unfolded = [ "CheckBox/constants", "CheckBox/fonts", "Label/colors", "LineEdit/constants", "LineEdit/styles", "OptionButton/styles", "Panel", "Panel/styles", "PanelContainer", "PanelContainer/styles", "PopupPanel/styles", "RichTextLabel/colors", "SpinBox/icons", "TabContainer/colors", "TabContainer/styles", "Tabs/colors", "TooltipPanel/styles", "VScrollBar/styles" ]
 

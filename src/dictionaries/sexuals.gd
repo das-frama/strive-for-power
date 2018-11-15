@@ -1,6 +1,13 @@
+# sexuals.gd
+# Imports.
+const Util = preload("res://src/util.gd")
+
+static func list():
+	return Util.read_json("res://assets/data/sexual.json")
+
 # Get list of properties by gender and age.
-static func list(gender, age, properties = []):
-	var sexuals = globals.read_json("res://assets/data/sexual.json")
+static func list_by_gender_age(gender, age, properties = []):
+	var sexuals = Util.read_json("res://assets/data/sexual.json")
 	
 	var list = {}
 	if properties.empty():

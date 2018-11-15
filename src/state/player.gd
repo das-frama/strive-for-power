@@ -7,11 +7,12 @@ const STAT_MAX = 7
 # Bonus points.
 var bonus_points = 2
 
+var _slaves = {}
+
 # Initialization.
-func _init():
-	id = 0
+func _init().(0):
 	gender = "male"
-	age = "teen"
+	age = "adult"
 	origin = "poor"
 	stats.strength.max = 4
 	stats.agility.max = 4

@@ -1,11 +1,17 @@
+# new_game.gd
 extends HBoxContainer
+
+# Imports.
+const Player  = preload("res://src/state/player.gd")
+const Util    = preload("res://src/util.gd")
+const Races   = preload("res://src/dictionaries/races.gd")
+const Jobs    = preload("res://src/dictionaries/jobs.gd")
+const Sexuals = preload("res://src/dictionaries/sexuals.gd")
+const Specs   = preload("res://src/dictionaries/specs.gd")
+const Traits  = preload("res://src/dictionaries/traits.gd")
 
 # Constants.
 const PORTRAIT_PATH = "res://assets/portraits"
-
-# Player.
-const Player = preload("res://src/player/player.gd")
-var _player
 
 # Stages.
 enum {
@@ -18,13 +24,16 @@ enum {
 }
 var _current_stage
 
-# UI Elements.
-onready var StageButtons = $StageButtons/VBox
-onready var StagePanels = $StagePanels/Margin
+# Constructed player object.
+var _player
 
 # Portraits.
 var _portraits_textures = []
 var _portrait_index = 0
+
+# UI Elements.
+onready var StageButtons = $StageButtons/VBox
+onready var StagePanels  = $StagePanels/Margin
 
 # Initialization.
 func _ready():
@@ -53,6 +62,8 @@ func change_stage(stage):
 			_populate_specs()
 		STAGE_FINAL:
 			_print_player()
+			globals.state.player = _player
+			globals.save_game("savedata.bin")
 
 	# Set other buttons disabled except Cancel button.
 	for i in range(0, StageButtons.get_child_count() - 1):
@@ -78,7 +89,7 @@ func _populate_races_list():
 		
 	var RaceButton = RaceList.get_node("BaseButton")
 	# Open .json file with races. It's almost a data base.
-	var races = globals.read_json("res://assets/data/races.json")
+	var races = Races.list()
 	# Iterate over races and duplicate base button.
 	for key in races:
 		var race = races[key]
@@ -92,7 +103,7 @@ func _populate_races_list():
 	
 # Set race.
 func _select_race(race_key):
-	var races = globals.read_json("res://assets/data/races.json")
+	var races = Races.list()
 	# Get race object.
 	var race_object = races[race_key]	
 	# Set description.
@@ -115,7 +126,7 @@ func _load_portraits():
 	if _portraits_textures.size() > 0:
 		return
 		
-	var files = globals.read_dir(PORTRAIT_PATH)
+	var files = Util.read_dir(PORTRAIT_PATH)
 	for file in files:
 		_portraits_textures.append(load(file))
 		
@@ -204,10 +215,12 @@ func _populate_appearance():
 	Virgin.visible = _player.has_vagina
 	# Others.
 	var apperance_list = {}
-	globals.merge_dict(apperance_list, globals.races.list(_player.race, ["eye_color", "hair_color", "ears", "fur_color", "penis_type", "skin", "horns", "wings", "tail"]))
-	globals.merge_dict(apperance_list, globals.sexuals.list(_player.gender, _player.age))
+	Util.merge_dict(apperance_list, Races.list_by_race(_player.race, [
+		"eye_color", "hair_color", "ears", "fur_color", "penis_type", "skin", "horns", "wings", "tail"
+	]))
+	Util.merge_dict(apperance_list, Sexuals.list_by_gender_age(_player.gender, _player.age))
 	for NodeElement in get_tree().get_nodes_in_group("player_property"):
-		var key = globals.to_snake_case(NodeElement.name)
+		var key = Util.to_snake_case(NodeElement.name)
 		if apperance_list.has(key):
 			_populate_option_button(NodeElement, key, apperance_list[key])
 		else:
@@ -251,7 +264,7 @@ func _populate_traits():
 	TraitList.set_meta("loaded", true)
 		
 	var TraitButton = TraitList.get_node("BaseButton")
-	var traits = globals.read_json("res://assets/data/traits.json")
+	var traits = Traits.list()
 	# Iterate over traits and duplicate base button.
 	for key in traits:
 		var trait = traits[key]
@@ -265,7 +278,7 @@ func _populate_traits():
 func _select_trait(button_pressed, key, TraitButton):
 	var Description = StagePanels.get_node("Trait/HBox/Description")
 	
-	var traits = globals.read_json("res://assets/data/traits.json")		
+	var traits = Traits.list()
 	var text = traits[key].description
 	Description.set_bbcode(_player.process_labels(text))
 	# Add / remove trait.
@@ -284,7 +297,7 @@ func _populate_jobs():
 		return
 	JobList.set_meta("loaded", true)
 	var JobButton = JobList.get_node("BaseButton")
-	var jobs = globals.jobs.list()
+	var jobs = Jobs.list()
 	# Iterate over jobs and duplicate base button.
 	for key in jobs:
 		var job = jobs[key]
@@ -297,7 +310,7 @@ func _populate_jobs():
 	pass
 	
 func _select_job(key):
-	var jobs = globals.jobs.list()
+	var jobs = Jobs.list()
 	var Description = StagePanels.get_node("JobsSpecs/HBox/Description")
 	var text = jobs[key].description
 	Description.set_bbcode(_player.process_labels(text))
@@ -311,7 +324,7 @@ func _populate_specs():
 	SpecList.set_meta("loaded", true)
 		
 	var SpecButton = SpecList.get_node("BaseButton")
-	var specs = globals.specs.list()
+	var specs = Specs.list()
 	# Iterate over specs and duplicate base button.
 	for key in specs:
 		var spec = specs[key]
@@ -325,7 +338,7 @@ func _populate_specs():
 func _select_spec(key, SpecButton):
 	var Description = StagePanels.get_node("JobsSpecs/HBox/Description")
 	
-	var specs = globals.specs.list()
+	var specs = Specs.list()
 	if specs[key].has("rules") && not _player.check_requirements(specs[key].rules):
 		Description.set_bbcode("Does not meet the requirements")
 		SpecButton.set_pressed(false)
@@ -349,10 +362,11 @@ func _print_player():
 		text += "\t%s\n" % t
 	text += "\nJob: %s\n" % _player.job
 	text += "Spec: %s\n" % _player.spec
-	text += "\nInventory:\n"
-	var items = _player.inventory.items()
-	for id in items:
-		text += "\t[%s] %s (%d)\n" % [id, items[id].name, items[id].amount]
+#	text += "\nInventory:\n"
+#	var items = _player.inventory.items()
+#	for id in items:
+#		text += "\t[%s] %s (%d)\n" % [id, items[id].name, items[id].amount]
+	text += "\nDescription:\n%s\n" % _player.description.get_text()
 	
 	StagePanels.get_node("Final/Description").set_bbcode(text)
 
@@ -367,20 +381,6 @@ func _on_confirm_pressed(stage):
 			StageButton.set_text("%s %s" % [_player.gender.capitalize(), _player.age.capitalize()])
 			_player.random_name()
 			_player.random_sexuals()
-		STAGE_APPEARANCE:
-			pass
-		STAGE_JOB:
-			var items = globals.read_json("res://assets/data/items.json")
-			_player.inventory.add_item(items.food)
-			_player.inventory.add_item(items.food)
-			_player.inventory.add_item(items.supply)
-			_player.inventory.add_item(items.rope)
-			_player.inventory.add_item(items.rope)
-			_player.inventory.add_item(items.rope)
-			_player.inventory.add_item(items.torch)
-			_player.inventory.add_item(items.torch)
-		STAGE_FINAL:
-			pass
 
 	change_stage(_current_stage + 1)
 

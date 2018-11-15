@@ -343,7 +343,7 @@
         "name": "Natural Beauty",
         "description": "{fullname} is unusually pretty since {his} birth and often was an object of envy. \n\n[color=aqua]Beauty +35. [/color]",
         "effect": {
-            "beauty": {
+            "natural_beauty": {
                 "beauty": { "base": 35 }
             }
         },

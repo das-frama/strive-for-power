@@ -155,10 +155,10 @@
     "dryad": {
         "race_name": "Dryad",
         "skin": ["green"],
+        "skin_cover": ["plants"],
         "eye_sclera": ["green"],
         "hair_color": ["green", "purple"],
         "ears": ["pointy"],
-        "skin_cover": ["plants"],
         "description": "Dryads are a virtual unknown, with little information on their natural habitat and reproduction. It is speculated that they are nature spirits born from old trees that have absorbed a large amount of mana.",
         "details": "[color=aqua]Racial trait: forage is 50% more effective.[/color]\n\n[color=yellow]Stat potential: Strength - 3, Agility - 4, Magic - 5, Endurance - 4 [/color]",
         "bonus": "",
