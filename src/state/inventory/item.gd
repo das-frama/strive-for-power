@@ -92,11 +92,9 @@ func use(character):
 					gear_item = g
 					break
 		
-		if character.equip_item(self, gear_item):
-			apply_effect(character)
-	
+		character.equip_item(self, gear_item)
 	else:
-		apply_effect(character)
+		character.add_effect(self.effect)
 		self.amount -= 1
 		emit_signal("item_used")
 		

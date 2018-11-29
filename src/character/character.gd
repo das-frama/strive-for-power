@@ -270,17 +270,18 @@ func has_effect(key):
 	return _effects.has(key)
 	
 func add_effect(key, effect = {}):
-	assert(typeof(effect) == TYPE_DICTIONARY)
+	if typeof(effect) != TYPE_DICTIONARY:
+		return false
 	
-	_effects[key] = effect
-	# Set class properties from affects.
-	for property in effect:
-		if not property in stats || typeof(effect[property]) != TYPE_DICTIONARY:
-			continue
-		for subproperty in effect[property]:
-			if not subproperty in stats[property]:
-				continue
-			stats[property][subproperty] += effect[property][subproperty]
+	var result = apply_effect(effect)
+	if result == null:
+		return false
+		
+	_effects[key] = result
+	
+	print(stats)
+		
+	return true
 			
 func remove_effect(key):
 	if not _effects.has(key):
@@ -288,12 +289,42 @@ func remove_effect(key):
 		
 	var effect = _effects[key]
 	for property in effect:
-		if not property in stats || typeof(effect[property]) != TYPE_DICTIONARY:
+		var value = get_indexed(property)
+		set_indexed(property, value - effect[property])
+	
+	_effects.erase(key)
+	print(stats)
+	
+# Returns difference between new value and old value.
+func apply_effect(effect):
+	if typeof(effect) != TYPE_DICTIONARY:
+		return null
+		
+	var result = {}
+	for property in effect:
+		var value = get_indexed(property)
+			
+		if typeof(value) == TYPE_NIL || typeof(effect[property]) != TYPE_ARRAY:
 			continue
-		for subproperty in effect[property]:
-			if not subproperty in stats[property]:
-				continue
-			stats[property][subproperty] -= effect[property][subproperty]
+		
+		var operator = effect[property][0]
+		var delta = effect[property][1]
+		var new_value = value
+		# Match operator.
+		match operator:
+			"+": 
+				new_value = value + delta
+			"-": 
+				new_value = value - delta
+			"*": 
+				new_value = value * delta
+			"/": 
+				new_value = value / delta
+		# Store delta.
+		set_indexed(property, new_value)
+		result[property] = new_value - value
+	
+	return result
 
 # TODO (frama): Add more labels.
 func process_labels(text):
@@ -403,9 +434,14 @@ func equip_item(item, gear):
 		return false
 		
 	if is_item_equipped(gear):
-		globals.state.inventory.back_item(self.gear[gear])
+		unequip_item(gear)
+#		globals.state.inventory.back_item(self.gear[gear])
 		
 	self.gear[gear] = item
+	# Apply item effect.
+	if typeof(item.effect) == TYPE_DICTIONARY && not item.effect.empty():
+		add_effect("item_%d" % item.id, item.effect)
+		
 	globals.state.inventory.remove_item(item.id)
 	emit_signal("item_equipped", item, gear)
 	
@@ -417,8 +453,10 @@ func unequip_item(gear):
 	var item = self.gear[gear]
 	# Clear gear state.
 	self.gear[gear] = null
-	emit_signal("item_unequipped", item, gear)
 	globals.state.inventory.back_item(item)
+	remove_effect("item_%d" % item.id)
+	
+	emit_signal("item_unequipped", item, gear)
 
 func is_item_equipped(gear):
 	return self.gear[gear] != null

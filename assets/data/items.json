@@ -58,7 +58,7 @@
             "stats:agility:max": ["-", 2]
         },
         "requires": {
-            "stats:strength:max": [">=", 2]
+            "stats:strength:max": [">=", 6]
         }
     },
     "neck": {

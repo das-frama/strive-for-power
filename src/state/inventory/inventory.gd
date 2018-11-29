@@ -20,7 +20,7 @@ func _init(c = 0):
 func items():
 	return _items
 
-# Experimental sorting.
+# Experimental sorting. Maybe changed in the future.
 func get_sorted_items():
 	var sorted = []
 	var items = _items
@@ -39,7 +39,6 @@ func get_sorted_items():
 		
 	return result
 		
-# Get item by id.
 func item(id):
 	if _items.has(id):
 		return _items[id]

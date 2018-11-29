@@ -76,14 +76,3 @@ func _on_item_used(item):
 	else:
 		ItemCell.update()
 		
-# If item were equipped by the player. 
-#func _on_item_equipped(item, gear):
-#	var ItemCell = get_item(item.id)
-#	if ItemCell == null:
-#		return
-#
-#	ItemCell.delete()
-	
-## If item were unequipped by the player. 
-#func _on_item_unequipped(item, gear):
-#	insert_item(item)
