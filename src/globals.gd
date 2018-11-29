@@ -10,7 +10,6 @@ const VERSION     = "0.1.1"
 const SECRET_PASS = "h0142ps"
 
 # Paths.
-const L10N_PATH = "res://assets/localization"
 const SAVE_PATH = "user://saves"
 
 # Paths to the game screens.
@@ -124,9 +123,6 @@ func connect_tooltip(data, node, tooltip_type = "tooltip"):
 		
 	node.connect("mouse_entered", Tooltip, "show_tooltip", [node])
 	node.connect("mouse_exited",  Tooltip, "hide_tooltip")
-	
-	# Cleanup connection after deleting the node.
-	# node.connect("tree_exiting", self, "disconnect_tooltip", [node])
 
 func disconnect_tooltip(node):
 	assert(node is Node)
@@ -137,6 +133,22 @@ func disconnect_tooltip(node):
 		node.disconnect("mouse_entered", Tooltip, "show_tooltip")
 		node.disconnect("mouse_exited",  Tooltip, "hide_tooltip")
 		Tooltip.queue_free()
+		
+func show_confirm(text, object, confirmed_method, binds = Array()):
+	destroy_confirm()
+	
+	var ConfirmDialog = ConfirmationDialog.new()
+	ConfirmDialog.name = "Confirm"
+	ConfirmDialog.dialog_text = text
+	ConfirmDialog.connect("confirmed", object, confirmed_method, binds)
+	ConfirmDialog.connect("confirmed", self, "destroy_confirm")
+	get_tree().get_root().call_deferred("add_child", ConfirmDialog)
+	ConfirmDialog.show()
+	
+func destroy_confirm():
+	var Root = get_tree().get_root()
+	if Root.has_node("Confirm"):
+		Root.get_node("Confirm").queue_free()
 
 func close_top_window():
 	var windows = get_tree().get_nodes_in_group("closeable_windows")

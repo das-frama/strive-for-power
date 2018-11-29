@@ -39,9 +39,6 @@ var settings = {
 	},
 }
 
-# Equipment.
-var gear = ["helm", "chest", "gloves", "boots", "rhand", "lhand", "neck", "ring1", "ring2"]
-
 # Constructor.
 func _init():
 	player = Player.new()

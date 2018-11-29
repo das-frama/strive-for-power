@@ -1,9 +1,15 @@
 # character.gd
+extends Object
 # Imports.
 const Description = preload("res://src/character/description.gd")
 const Util        = preload("res://src/util.gd")
 const Traits      = preload("res://src/dictionaries/traits.gd")
 const Jobs        = preload("res://src/dictionaries/jobs.gd")
+const Item        = preload("res://src/state/inventory/item.gd")
+
+# Signals.
+signal item_equipped(item, gear)
+signal item_unequipped(item, gear)
 
 # Base.
 var id = null
@@ -80,6 +86,19 @@ var sleep = null
 var spec = null
 
 var description = null
+
+# Gear.
+var gear = {
+	"helmet": null,
+	"chest": null,
+	"gloves": null,
+	"boots": null,
+	"right_hand": null,
+	"left_hand": null,
+	"neck": null,
+	"ring_1": null,
+	"ring_2": null,
+}
 
 # Character's lists.
 var _traits = []
@@ -306,7 +325,8 @@ func process_labels(text):
 	return result
 
 func check_requirements(rules):
-	assert(typeof(rules) == TYPE_DICTIONARY)
+	if typeof(rules) != TYPE_DICTIONARY:
+		return rules
 
 	# Rules.
 	for property in rules:
@@ -374,3 +394,31 @@ func invoke_conditions():
 		}
 		fd[method].call_func(j["conditions"][method])
 	
+func equip_item(item, gear):
+	assert(self.gear.has(gear))
+	assert(item is Item)
+	
+	# Check if item can be equipped.
+	if not item.is_equippable():
+		return false
+		
+	if is_item_equipped(gear):
+		globals.state.inventory.back_item(self.gear[gear])
+		
+	self.gear[gear] = item
+	globals.state.inventory.remove_item(item.id)
+	emit_signal("item_equipped", item, gear)
+	
+	return true
+
+func unequip_item(gear):
+	assert(self.gear.has(gear))
+	
+	var item = self.gear[gear]
+	# Clear gear state.
+	self.gear[gear] = null
+	emit_signal("item_unequipped", item, gear)
+	globals.state.inventory.back_item(item)
+
+func is_item_equipped(gear):
+	return self.gear[gear] != null
