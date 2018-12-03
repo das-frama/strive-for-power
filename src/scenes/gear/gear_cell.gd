@@ -1,4 +1,4 @@
-# gear.gd
+# gear_cell.gd
 extends Control
 
 # Imports.

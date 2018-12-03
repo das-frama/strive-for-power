@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/scenes/inventory/item.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/inventory/item_cell.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/inventory/cell_normal.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/inventory/delete.png" type="Texture" id=3]
+
 
 [node name="Item" type="Control"]
 

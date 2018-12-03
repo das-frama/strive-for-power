@@ -2,7 +2,8 @@
 
 [ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=1]
 [ext_resource path="res://src/scenes/mansion/mansion.gd" type="Script" id=2]
-[ext_resource path="res://src/scenes/inventory/inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scenes/inventory/inventory_panel.tscn" type="PackedScene" id=3]
+
 
 [node name="Mansion" type="Control"]
 

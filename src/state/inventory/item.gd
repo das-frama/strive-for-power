@@ -25,7 +25,8 @@ var requires = true
 var icon_texture = null
 var sort = 1
 
-func _init(item = {}):
+func _init(code, item = {}):
+	self.code = code
 	for property in item:
 		if not property in self:
 			continue
@@ -68,11 +69,13 @@ func has_gear(gear):
 	return false
 	
 func get_gear():
+	var gear = null
+	
 	match self.type:
-		["gear", _, var gear]:
-			return gear
-					
-	return null
+		["gear", _, var g]:
+			gear = g
+
+	return gear
 	
 # Use item.
 func use(character):
@@ -80,42 +83,10 @@ func use(character):
 		return false
 		
 	if is_equippable():
-		var gear = get_gear()
-		if gear == null:
-			return false
-			
-		var gear_item = gear
-		if typeof(gear) == TYPE_ARRAY:
-			gear_item = gear[0]
-			for g in gear:
-				if not character.is_item_equipped(g):
-					gear_item = g
-					break
-		
-		character.equip_item(self, gear_item)
+		character.equip_item(self)
 	else:
-		character.add_effect(self.effect)
+		character.apply_effect(self.effect)
 		self.amount -= 1
 		emit_signal("item_used")
 		
-	return true
-
-func apply_effect(character):
-	if typeof(self.effect) != TYPE_DICTIONARY:
-		return false
-		
-	for property in self.effect:
-		var value = character.get_indexed(property)
-			
-		if typeof(value) == TYPE_NIL || typeof(self.effect[property]) != TYPE_ARRAY:
-			continue
-		
-		var effect = self.effect[property]
-		# Match operator.
-		match effect[0]:
-			"+": 
-				character.set_indexed(property, value + effect[1])
-			"-": 
-				character.set_indexed(property, value - effect[1])
-
 	return true

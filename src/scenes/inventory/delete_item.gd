@@ -1,3 +1,4 @@
+# delete_item.gd
 extends TextureButton
 
 # Imports.

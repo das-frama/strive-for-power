@@ -270,6 +270,7 @@ func has_effect(key):
 	return _effects.has(key)
 	
 func add_effect(key, effect = {}):
+	assert(typeof(key) == TYPE_STRING)
 	if typeof(effect) != TYPE_DICTIONARY:
 		return false
 	
@@ -279,8 +280,6 @@ func add_effect(key, effect = {}):
 		
 	_effects[key] = result
 	
-	print(stats)
-		
 	return true
 			
 func remove_effect(key):
@@ -293,7 +292,6 @@ func remove_effect(key):
 		set_indexed(property, value - effect[property])
 	
 	_effects.erase(key)
-	print(stats)
 	
 # Returns difference between new value and old value.
 func apply_effect(effect):
@@ -323,6 +321,10 @@ func apply_effect(effect):
 		# Store delta.
 		set_indexed(property, new_value)
 		result[property] = new_value - value
+		# @Debug
+		print("%s = %s" % [property, new_value])
+		
+	print("\n")
 	
 	return result
 
@@ -425,17 +427,28 @@ func invoke_conditions():
 		}
 		fd[method].call_func(j["conditions"][method])
 	
-func equip_item(item, gear):
-	assert(self.gear.has(gear))
+func equip_item(item, gear = null):
 	assert(item is Item)
 	
 	# Check if item can be equipped.
 	if not item.is_equippable():
 		return false
 		
+	# Get gear if it's not set.
+	if gear == null:
+		gear = item.get_gear()
+		if gear == null:
+			return false
+			
+		if typeof(gear) == TYPE_ARRAY:
+			var gear_list = gear
+			for g in gear_list:
+				if not is_item_equipped(g):
+					gear = g
+					break
+		
 	if is_item_equipped(gear):
 		unequip_item(gear)
-#		globals.state.inventory.back_item(self.gear[gear])
 		
 	self.gear[gear] = item
 	# Apply item effect.
@@ -460,3 +473,4 @@ func unequip_item(gear):
 
 func is_item_equipped(gear):
 	return self.gear[gear] != null
+	

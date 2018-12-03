@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/themes/theme_default.tres" type="Theme" id=1]
-[ext_resource path="res://src/scenes/inventory/inventory.gd" type="Script" id=2]
+[ext_resource path="res://src/scenes/inventory/inventory_panel.gd" type="Script" id=2]
 [ext_resource path="res://src/scenes/gear/gear_panel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scenes/inventory/delete_item.tscn" type="PackedScene" id=4]
 
@@ -81,8 +81,8 @@ size_flags_vertical = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
-margin_top = -161.0
-margin_right = 164.0
+margin_top = -270.0
+margin_right = 276.0
 margin_bottom = -11.0
 
 

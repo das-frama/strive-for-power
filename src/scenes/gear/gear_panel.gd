@@ -3,8 +3,9 @@ extends Panel
 
 # Imports.
 const Character = preload("res://src/character/character.gd")
+const Item      = preload("res://src/state/inventory/item.gd")
 # Scenes.
-const CellScene = preload("res://src/scenes/gear/cell.tscn")
+const CellScene = preload("res://src/scenes/gear/gear_cell.tscn")
 
 var character = null setget character_set
 
@@ -22,6 +23,23 @@ var gear_lines = {
 	"ring_1": tr("GEAR_RING"),
 	"ring_2": tr("GEAR_RING"),
 }
+
+func can_drop_data(position, data):
+	if typeof(data) == TYPE_OBJECT && data is Item:
+		var item = data
+		var gear = item.get_gear()
+		if typeof(gear) == TYPE_ARRAY:
+			if not gear_lines.has_all(gear):
+				return false
+		elif not gear_lines.has(gear):
+			return false
+		
+		return character.check_requirements(item.requires)
+		
+	return false
+	
+func drop_data(position, data):
+	character.equip_item(data)
 
 func character_set(c):
 	assert(c is Character)

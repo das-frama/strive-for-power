@@ -1,3 +1,4 @@
+# item_cell.gd
 extends Control
 
 # Imports.

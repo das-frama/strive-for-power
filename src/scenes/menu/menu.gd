@@ -1,3 +1,4 @@
+# menu.gd
 extends Control
 
 # Imports.

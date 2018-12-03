@@ -1,11 +1,11 @@
-# inventory.gd
+# inventory_panel.gd
 extends Panel
 
 # Imports.
 const Inventory = preload("res://src/state/inventory/inventory.gd")
 const Character = preload("res://src/character/character.gd")
 # Scenes.
-const ItemScene = preload("res://src/scenes/inventory/item.tscn")
+const ItemCellScene = preload("res://src/scenes/inventory/item_cell.tscn")
 
 # Reference to the inventory object to be handled.
 var inventory = null setget inventory_set
@@ -51,15 +51,19 @@ func get_item(item_id):
 	else:
 		return null
 
-# Update state of the inventory.
+# Insert GUI item into inventory.
 func insert_item(item):
 	if not item.is_connected("item_used", self, "_on_item_used"):
 		item.connect("item_used", self, "_on_item_used", [item])
 	
-	var ItemCell = ItemScene.instance()
+	var ItemCell = ItemCellScene.instance()
 	ItemCell.name = "%d" % item.id
 	ItemCell.item = item
 	Grid.add_child(ItemCell)
+
+# Updated item,
+func updade_item(item_id):
+	get_item(item_id).update()
 
 # Delete item,
 func delete_item(item_id):
